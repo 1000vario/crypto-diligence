@@ -1,0 +1,20 @@
+# Recommendation patterns. One regular expression per line, matched case-insensitively
+# against every claim, open question, contradiction and note of a report.
+# A match is a neutrality violation. The list is deliberately strict; evals review
+# false positives by hand and the list is edited, never the reports.
+\b(you|investors|users|readers|one|holders)\s+(should|must|ought to|need to|may want to|might want to|could|can)\s+(buy|sell|hold|invest|accumulate|avoid|exit|stake|ape)\b
+\b(we|i)\s+(recommend|advise|suggest|urge)\b
+\b(recommend(ed|s|ation)?|advis(e|ed|es|able)|suggest(ed|s)?)\s+(to\s+|that\s+\w+\s+)?(buy|sell|hold|invest|accumulate|avoid|exit)(ing)?\b
+\b(strong|good|great|bad|excellent|terrible|solid|safe|risky)\s+(buy|sell|investment|opportunity|bet)\b
+\b(buy|sell)\s+(signal|now|the dip|recommendation|rating|zone)\b
+\bprice target\b
+\b(bullish|bearish)\b
+\b(undervalued|overvalued)\b
+\bto the moon\b
+\b(will|is going to|is likely to|is expected to)\s+(rise|fall|pump|dump|moon|crash|rally|recover|outperform|underperform)\b
+\b(do not|don't|never|do)\s+(buy|sell|hold|invest|touch|ape)\b
+\bworth\s+(buying|investing|holding|a look)\b
+\bguaranteed\s+(return|profit|yield)s?\b
+\b(not|no)\s+financial\s+advice\b
+\b(get in|get out)\s+(now|early|before)\b
+\bdyor\b

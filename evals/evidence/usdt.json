@@ -1,0 +1,273 @@
+{
+ "case": "usdt",
+ "query": "Tether",
+ "category": "sensitive",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T13:56:23Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 11075,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "issue(uint256)": true,
+     "redeem(uint256)": true,
+     "pause()": true,
+     "unpause()": true,
+     "paused()": true,
+     "owner()": true,
+     "transferOwnership(address)": true,
+     "addBlackList(address)": true,
+     "removeBlackList(address)": true,
+     "destroyBlackFunds(address)": true
+    },
+    "selectors_in_implementation": null,
+    "owner": "0xc6cde7c39eb2f0f0095f41570af89efc2c1ea828",
+    "paused": false,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Tether USD",
+    "symbol": "USDT",
+    "decimals": 6,
+    "total_supply_raw": "88302633055702652",
+    "total_supply": 88302633055.70265
+   }
+  },
+  {
+   "tool": "get_token_holders",
+   "input": {
+    "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "limit": 10
+   },
+   "ok": true,
+   "output": {
+    "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "source_urls": [
+     "https://api.ethplorer.io/getTokenInfo/0xdac17f958d2ee523a2206206994597c13d831ec7?apiKey=freekey",
+     "https://api.ethplorer.io/getTopTokenHolders/0xdac17f958d2ee523a2206206994597c13d831ec7?apiKey=freekey"
+    ],
+    "holders_count": 15243679,
+    "owner_field": "0xc6cde7c39eb2f0f0095f41570af89efc2c1ea828",
+    "decimals": "6",
+    "total_supply_raw": "88303053982363963",
+    "top_holders": [
+     {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "share_pct": 18.12,
+      "is_contract": false
+     },
+     {
+      "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
+      "share_pct": 10.4,
+      "is_contract": false
+     },
+     {
+      "address": "0x835678a611b28684005a5e2233695fb6cbbb0007",
+      "share_pct": 6.36,
+      "is_contract": false
+     },
+     {
+      "address": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
+      "share_pct": 3.76,
+      "is_contract": true
+     },
+     {
+      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+      "share_pct": 3.71,
+      "is_contract": false
+     },
+     {
+      "address": "0x5754284f345afc66a98fbb0a0afe71e0f007b949",
+      "share_pct": 2.29,
+      "is_contract": false
+     },
+     {
+      "address": "0x22132139bf7f3921b1cadeab931f4fbf7bf2bc9e",
+      "share_pct": 1.13,
+      "is_contract": false
+     },
+     {
+      "address": "0xa7c0d36c4698981fab42a7d8c783674c6fe2592d",
+      "share_pct": 0.8,
+      "is_contract": false
+     },
+     {
+      "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
+      "share_pct": 0.78,
+      "is_contract": false
+     },
+     {
+      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
+      "share_pct": 0.59,
+      "is_contract": false
+     }
+    ],
+    "top_n_share_pct": 47.94,
+    "top_n": 10,
+    "notes": [
+     "A large holder that is a contract is often an exchange, a bridge, a staking or a treasury contract; its share is not one person's. Say which when known."
+    ]
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "tether",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "tether",
+    "symbol": "usdt",
+    "name": "Tether",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "klay-token": "0xd077a400968890eacc75cdc901f0356c943e4fdb",
+     "tezos": "KT1XnTn74bUtxHfDtBmm2bGZAQfhPbvKWR8o",
+     "tron": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+     "solana": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+     "near-protocol": "usdt.tether-token.near",
+     "kava": "0x919c1c267bc06a7039e03fcc2ef738525769109c",
+     "celo": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+     "the-open-network": "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
+     "aptos": "0x357b0b74bc833e95a115ad22604854d6b0fca151cecd94111770e5d6ffc9dc2b",
+     "avalanche": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 3,
+    "categories": [
+     "Stablecoins",
+     "USD Stablecoin",
+     "Solana Ecosystem",
+     "Avalanche Ecosystem",
+     "Near Protocol Ecosystem",
+     "Celo Ecosystem",
+     "Ethereum Ecosystem",
+     "Tezos Ecosystem"
+    ],
+    "links": {
+     "homepage": [
+      "https://tether.to/"
+     ],
+     "whitepaper": "https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf",
+     "github": [],
+     "twitter": "tether",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "https://ethplorer.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "https://solscan.io/token/es9vmfrzacermjfrf4h2fyd4kconky11mcce8benwnyb"
+     ]
+    },
+    "market": {
+     "price_usd": 0.999136,
+     "market_cap_usd": 184092237819,
+     "fully_diluted_valuation_usd": 189554476878,
+     "total_volume_24h_usd": 33148324254,
+     "circulating_supply": 184250955801.4404,
+     "total_supply": 189717904214.9262,
+     "max_supply": null,
+     "ath_usd": 1.32,
+     "ath_date": "2018-07-23T16:00:00.000Z",
+     "ath_change_pct": -24.48493,
+     "atl_usd": 0.572521,
+     "atl_date": "2015-03-01T16:00:00.000Z",
+     "change_24h_pct": -0.00138,
+     "change_7d_pct": -0.07488,
+     "change_30d_pct": -0.0601,
+     "change_1y_pct": -0.22993
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:14:53.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/tether"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "tether"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "tether",
+    "matches": [
+     {
+      "date": "2017-11-19",
+      "name": "Tether",
+      "classification": "Key Compromise",
+      "technique": "Private Key Compromised",
+      "amount_usd": 30950010,
+      "returned_funds_usd": null,
+      "chains": [
+       "Bitcoin"
+      ],
+      "target_type": "Token",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "5009"
+     }
+    ],
+    "matches_total": 1
+   }
+  }
+ ]
+}

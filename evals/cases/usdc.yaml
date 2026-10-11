@@ -1,0 +1,101 @@
+id: usdc
+query: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+category: sensitive
+truth_date: '2026-10-11'
+summary: >-
+  Fiat-backed stablecoin issued by Circle, queried by its Ethereum contract address. The
+  contract is an upgradeable proxy (zeppelinos slots, implementation
+  0x43506849d7c04f9138d1a2050bbf3a0c054402dd, admin
+  0x807a96288a1a408dbc13de2b1d087d10356395d2) with upgradeTo and upgradeToAndCall in the
+  proxy; the implementation exposes mint, burn, pause, unpause, blacklist and unBlacklist
+  under a master minter, pauser and blacklister. Source verified on Sourcify, 6 decimals,
+  supply about 48.5 billion. CoinGecko rank 6, market cap about 73 billion USD, price 0.9996
+  USD on 2026-10-11. The reference implementation circlefin/stablecoin-evm is under
+  Apache-2.0, last pushed 2026-08-12. No row in the DeFiLlama exploit database. Dated event:
+  on 2023-03-11, after Circle disclosed 3.3 billion USD of reserves at Silicon Valley Bank,
+  USDC traded below 0.90 USD before returning to its peg once the deposits were guaranteed.
+  Holder concentration is readable from Ethplorer and belongs in the report.
+identity:
+  name: USDC
+  symbol: USDC
+  chain: ethereum
+  address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+  coingecko_id: usd-coin
+  defillama_slug: null
+checks:
+  - tool: get_contract_source
+    input: {address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'}
+  - tool: get_token_metadata
+    input: {address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'}
+  - tool: get_token_holders
+    input: {address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', limit: 10}
+  - tool: coingecko_coin
+    input: {id_or_address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', lookup: contract}
+  - tool: defillama_hacks
+    input: {name_filter: usdc}
+  - tool: github_repo
+    input: {owner_repo: circlefin/stablecoin-evm}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+    title: Sourcify verification record of the USDC proxy
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/ethereum/contract/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+    title: CoinGecko coin page by contract (API)
+    accessed: '2026-10-11'
+  - url: https://api.ethplorer.io/getTopTokenHolders/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48?apiKey=freekey&limit=10
+    title: Ethplorer top holders
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/circlefin/stablecoin-evm
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+  - url: https://www.theblock.co/post/218993
+    title: The Block, 2023-03-11, USDC at about 0.90 USD after the Silicon Valley Bank disclosure
+    accessed: '2026-10-11'
+  - url: https://www.cnbc.com/2023/03/11/stablecoin-usdc-breaks-dollar-peg-after-firm-reveals-it-has-3point3-billion-in-svb-exposure.html
+    title: CNBC, 2023-03-11, USDC breaks its dollar peg after the 3.3 billion USD SVB disclosure
+    accessed: '2026-10-11'
+expected_facts:
+  - id: proxy
+    agent: onchain
+    pattern: '(?i)(proxy|implementation|upgrade)'
+  - id: blacklist
+    agent: onchain
+    pattern: '(?i)(blacklist|freeze|block ?list)'
+  - id: mint
+    agent: onchain
+    pattern: '(?i)mint'
+  - id: pause
+    agent: onchain
+    pattern: '(?i)paus'
+  - id: admin-or-owner
+    agent: onchain
+    pattern: '(?i)(admin|owner|master ?minter|0x807a96288a1a408dbc13de2b1d087d10356395d2)'
+  - id: supply-48-billion
+    agent: onchain
+    pattern: '(?i)(48[,. ]?\d\d\d[,. ]?\d\d\d[,. ]?\d\d\d|48(\.\d+)? ?billion|48\.5 ?B\b)'
+  - id: holder-concentration
+    agent: onchain
+    pattern: '(?i)(holder|concentrat|top ?10|largest)'
+  - id: peg-price
+    agent: market
+    pattern: '(?i)(0\.99|1\.00|\$ ?1\b|peg)'
+  - id: market-cap
+    agent: market
+    pattern: '(?i)(market cap|7[0-9](\.\d+)? ?billion)'
+  - id: apache-licence
+    agent: docs
+    pattern: '(?i)(apache|licen[cs]e)'
+  - id: circle-or-reserves
+    agent: docs
+    pattern: '(?i)(circle|attest|reserve)'
+  - id: svb-depeg-2023
+    agent: incidents
+    pattern: '(?i)(silicon valley bank|svb|march 2023|2023-03-1[01]|depeg|0\.8[7-9]|0\.9\d)'
+forbidden_facts:
+  - id: no-controls
+    pattern: '(?i)(no (proxy|upgrade|blacklist|pause)|not (a |an )?(proxy|upgradeable)|immutable|cannot be (paused|frozen|upgraded|blacklisted))'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions: []

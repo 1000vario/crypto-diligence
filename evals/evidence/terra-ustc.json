@@ -1,0 +1,252 @@
+{
+ "case": "terra-ustc",
+ "query": "TerraClassicUSD",
+ "category": "exploit",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "coingecko_search",
+   "input": {
+    "query": "TerraClassicUSD"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.coingecko.com/api/v3/search?query=TerraClassicUSD",
+    "coins": [
+     {
+      "id": "terrausd",
+      "name": "TerraClassicUSD",
+      "symbol": "USTC",
+      "market_cap_rank": 698
+     }
+    ]
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "terrausd",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "terrausd",
+    "symbol": "ustc",
+    "name": "TerraClassicUSD",
+    "asset_platform_id": "terra",
+    "platforms": {
+     "terra": "uusd",
+     "osmosis": "ibc/BE1BB42D4BE3C30D50B68D7C41DB4DFCE9678E8EF8C539F6E6A9345048894FCC"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 698,
+    "categories": [
+     "Stablecoins",
+     "USD Stablecoin",
+     "Seigniorage",
+     "Alleged SEC Securities",
+     "Osmosis Ecosystem",
+     "DeFiance Capital Portfolio",
+     "Terra Classic Ecosystem",
+     "YZi Labs (Prev. Binance Labs) Portfolio"
+    ],
+    "links": {
+     "homepage": [
+      "https://www.terra-classic.io"
+     ],
+     "whitepaper": null,
+     "github": [
+      "https://github.com/classic-terra/core"
+     ],
+     "twitter": "terra_money",
+     "blockchain_sites": [
+      "https://finder.terra.money/classic/",
+      "https://finder.terraport.finance/",
+      "https://finder.terraclassic.community/"
+     ]
+    },
+    "market": {
+     "price_usd": 0.00542058,
+     "market_cap_usd": 30227975,
+     "fully_diluted_valuation_usd": 32930884,
+     "total_volume_24h_usd": 1033274,
+     "circulating_supply": 5576092915.832983,
+     "total_supply": 6074693092.831009,
+     "max_supply": null,
+     "ath_usd": 1.092,
+     "ath_date": "2021-01-11T14:30:57.000Z",
+     "ath_change_pct": -99.50357,
+     "atl_usd": 0.00406362,
+     "atl_date": "2026-02-05T16:26:24.000Z",
+     "change_24h_pct": 0.03024,
+     "change_7d_pct": -6.76934,
+     "change_30d_pct": 6.77584,
+     "change_1y_pct": -31.58654
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:13:47.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/terrausd"
+   }
+  },
+  {
+   "tool": "coingecko_market_chart",
+   "input": {
+    "coin_id": "terrausd",
+    "days": 90
+   },
+   "ok": true,
+   "output": {
+    "days": 90,
+    "points": 2161,
+    "first": {
+     "date": "2026-07-13",
+     "price_usd": 0.005397769822352595
+    },
+    "last": {
+     "date": "2026-10-11",
+     "price_usd": 0.005419911741267508
+    },
+    "min": {
+     "date": "2026-08-18",
+     "price_usd": 0.00470706296720747
+    },
+    "max": {
+     "date": "2026-09-27",
+     "price_usd": 0.006221692010646118
+    },
+    "change_pct": 0.41,
+    "max_drawdown_pct": 17.49,
+    "mean_volume_usd": 1534022.12,
+    "last_volume_usd": 1033340.7153734438,
+    "sampled": [
+     {
+      "date": "2026-07-13",
+      "price_usd": 0.005397769822352595
+     },
+     {
+      "date": "2026-07-20",
+      "price_usd": 0.0053869429929925515
+     },
+     {
+      "date": "2026-07-27",
+      "price_usd": 0.00511092957684597
+     },
+     {
+      "date": "2026-08-03",
+      "price_usd": 0.004955603963008003
+     },
+     {
+      "date": "2026-08-10",
+      "price_usd": 0.0050579681654214365
+     },
+     {
+      "date": "2026-08-17",
+      "price_usd": 0.004868598811733962
+     },
+     {
+      "date": "2026-08-24",
+      "price_usd": 0.005335433125192858
+     },
+     {
+      "date": "2026-08-31",
+      "price_usd": 0.005207386523585345
+     },
+     {
+      "date": "2026-09-07",
+      "price_usd": 0.005409381496868206
+     },
+     {
+      "date": "2026-09-14",
+      "price_usd": 0.0053797228078298846
+     },
+     {
+      "date": "2026-09-21",
+      "price_usd": 0.005927421060232116
+     },
+     {
+      "date": "2026-09-27",
+      "price_usd": 0.006065451240999291
+     },
+     {
+      "date": "2026-10-04",
+      "price_usd": 0.005806216862981771
+     },
+     {
+      "date": "2026-10-11",
+      "price_usd": 0.005430124814657599
+     }
+    ],
+    "source_url": "https://api.coingecko.com/api/v3/coins/terrausd/market_chart?vs_currency=usd&days=90"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "terra"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "terra",
+    "matches": [
+     {
+      "date": "2024-07-31",
+      "name": "Terra 2.0",
+      "classification": "Reentrancy",
+      "technique": "Reentrancy",
+      "amount_usd": 6400000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Terra2"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     },
+     {
+      "date": "2023-04-10",
+      "name": "Terraport",
+      "classification": "Access Control",
+      "technique": "Improper Access Control",
+      "amount_usd": 4000000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Terra Classic"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "7517"
+     },
+     {
+      "date": "2022-04-21",
+      "name": "Terra (LUNA)",
+      "classification": "Social Engineering",
+      "technique": "Phishing",
+      "amount_usd": 4310000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Terra"
+      ],
+      "target_type": "Chain",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     }
+    ],
+    "matches_total": 3
+   }
+  }
+ ]
+}

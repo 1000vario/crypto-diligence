@@ -1,0 +1,97 @@
+id: euler
+query: '0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b'
+category: exploit
+truth_date: '2026-10-11'
+summary: >-
+  Lending protocol, queried by the EUL token address. The token source is an exact match on
+  Sourcify, no proxy, no mint, pause or blacklist selector, total supply about 27.18 million.
+  On 2023-03-13 Euler V1 was drained of about 197 million USD through a donation attack
+  (donateToReserves and a flash loan); DeFiLlama records 240 million USD returned, which is
+  more than the amount it records as stolen: the two figures come from different valuation
+  dates and a report must flag the gap rather than smooth it. The protocol relaunched as
+  Euler V2; DeFiLlama TVL for the parent is about 303 million USD on 2026-10-11 and its
+  hallmarks include a 2025-11-04 Stream Finance event. The repository
+  euler-xyz/euler-contracts is archived (last push 2024-05-24). CoinGecko rank 628.
+identity:
+  name: Euler
+  symbol: EUL
+  chain: ethereum
+  address: '0xd9fcd98c322942075a5c3860693e9f4f03aae07b'
+  coingecko_id: euler
+  defillama_slug: euler
+checks:
+  - tool: get_contract_source
+    input: {address: '0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b'}
+  - tool: get_token_metadata
+    input: {address: '0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b'}
+  - tool: coingecko_coin
+    input: {id_or_address: '0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b', lookup: contract}
+  - tool: defillama_protocol
+    input: {slug: euler}
+  - tool: defillama_hacks
+    input: {name_filter: euler}
+  - tool: github_repo
+    input: {owner_repo: euler-xyz/euler-contracts}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b
+    title: Sourcify verification record of the EUL token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/ethereum/contract/0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b
+    title: CoinGecko coin page by contract (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/euler
+    title: DeFiLlama protocol page, TVL and hallmarks
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (Euler V1, 2023-03-13, 197 million USD, 240 million USD returned)
+    accessed: '2026-10-11'
+  - url: https://rekt.news/euler-rekt/
+    title: rekt.news on the Euler exploit of 2023-03-13
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/euler-xyz/euler-contracts
+    title: GitHub repository metadata (archived)
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: supply-27-million
+    agent: onchain
+    pattern: '(?i)(27[,. ]?18\d[,. ]?\d\d\d|27\.1\d? ?million|27\.2 ?M|27 million)'
+  - id: no-sensitive-functions
+    agent: onchain
+    pattern: '(?i)(no (sensitive|mint|pause|blacklist|owner|upgrade)|none (of|found|detected|present)|not (found|present|detected|exposed)|absent)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: archived-or-v2
+    agent: docs
+    pattern: '(?i)(archiv|euler v2|euler-v2|vault kit|evk)'
+  - id: licence
+    agent: docs
+    pattern: '(?i)licen[cs]e'
+  - id: exploit-date
+    agent: incidents
+    pattern: '(?i)(2023-03-13|13 march 2023|march 13,? 2023|march 2023)'
+  - id: amount-197-million
+    agent: incidents
+    pattern: '(?i)(197|19[0-9](\.\d+)? ?million|200 ?million)'
+  - id: technique
+    agent: incidents
+    pattern: '(?i)(donation|flash ?loan|donateToReserves|liquidat)'
+  - id: funds-returned
+    agent: incidents
+    pattern: '(?i)(return|recover|gave back|repaid)'
+forbidden_facts:
+  - id: no-exploit
+    pattern: '(?i)(no (known |recorded |reported |major )?(exploit|hack|incident)|never (been )?(hacked|exploited))'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions:
+  - id: stolen-versus-returned
+    pattern: '(?i)(197|240|return|recover|more than (was )?(stolen|taken|lost))'

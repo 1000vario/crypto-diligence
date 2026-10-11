@@ -1,0 +1,82 @@
+id: rocket-pool
+query: Rocket Pool
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Decentralised staking protocol. The RPL token at 0xD33526068D116cE69F19A9ee46F0bd304F21A51f
+  has its source verified on Sourcify, exposes burn and burnFrom selectors and has a total
+  supply of about 22.9 million. DeFiLlama TVL about 1.3 billion USD (listed 2021-11-24) with
+  audits by Sigma Prime, ConsenSys Diligence and Trail of Bits plus an Immunefi programme;
+  CoinGecko rank 542, market cap about 43 million USD on 2026-10-11. The repository
+  rocket-pool/rocketpool is under GPL-3.0, last pushed 2026-04-17. The DeFiLlama exploit
+  database lists a 3.8 million USD phishing entry dated 2023-03-30, a theft from a token
+  holder rather than a flaw of the protocol contracts; no protocol exploit is recorded.
+identity:
+  name: Rocket Pool
+  symbol: RPL
+  chain: ethereum
+  address: '0xd33526068d116ce69f19a9ee46f0bd304f21a51f'
+  coingecko_id: rocket-pool
+  defillama_slug: rocket-pool
+checks:
+  - tool: get_contract_source
+    input: {address: '0xD33526068D116cE69F19A9ee46F0bd304F21A51f', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xD33526068D116cE69F19A9ee46F0bd304F21A51f'}
+  - tool: get_token_metadata
+    input: {address: '0xD33526068D116cE69F19A9ee46F0bd304F21A51f'}
+  - tool: coingecko_coin
+    input: {id_or_address: rocket-pool, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: rocket-pool}
+  - tool: defillama_hacks
+    input: {name_filter: rocket pool}
+  - tool: github_repo
+    input: {owner_repo: rocket-pool/rocketpool}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xD33526068D116cE69F19A9ee46F0bd304F21A51f
+    title: Sourcify verification record of the RPL token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/rocket-pool
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/rocket-pool
+    title: DeFiLlama protocol page, TVL and audits
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/rocket-pool/rocketpool
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: burn-function
+    agent: onchain
+    pattern: '(?i)burn'
+  - id: supply-22-million
+    agent: onchain
+    pattern: '(?i)(22[,. ]?[89]\d\d[,. ]?\d\d\d|22\.[89]\d? ?million|22\.9 ?M|23 million)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: gpl-licence
+    agent: docs
+    pattern: '(?i)(GPL|licen[cs]e)'
+  - id: audits
+    agent: docs
+    pattern: '(?i)(audit|sigma prime|consensys|trail of bits|immunefi)'
+  - id: phishing-or-no-exploit
+    agent: incidents
+    pattern: '(?i)(phishing|no (known |recorded |reported |protocol )?(exploit|hack|incident)|none (found|known|recorded))'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: rug-or-abandoned
+    pattern: '(?i)(rug ?pull|exit scam|abandoned|archived)'
+expected_contradictions: []

@@ -1,0 +1,380 @@
+{
+ "case": "balancer",
+ "query": "Balancer",
+ "category": "exploit",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3D",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3d",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xba100000625a3754423978a60c9317c58a424e3d",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T13:49:39Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3D"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3d",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 12349,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "mint(address,uint256)": true,
+     "burn(uint256)": true,
+     "burnFrom(address,uint256)": true
+    },
+    "selectors_in_implementation": null,
+    "owner": null,
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3D"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3d",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Balancer",
+    "symbol": "BAL",
+    "decimals": 18,
+    "total_supply_raw": "72373979797850016944263689",
+    "total_supply": 72373979.79785001
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "balancer",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "balancer",
+    "symbol": "bal",
+    "name": "Balancer",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xba100000625a3754423978a60c9317c58a424e3d",
+     "harmony-shard-0": "0xdc5f76104d0b8d2bf2c2bbe06cdfe17004e9010f",
+     "polygon-zkevm": "0x120ef59b80774f02211563834d8e3b72cb1649d6",
+     "huobi-token": "0x045de15ca76e76426e8fc7cba8392a3138078d0f",
+     "near-protocol": "ba100000625a3754423978a60c9317c58a424e3d.factory.bridge.near",
+     "base": "0x4158734d47fc9692176b5085e0f52ee0da5d47f1",
+     "energi": "0x9b817c6e9a38e604606aea3ad6ed271ce8eaa9d6",
+     "polygon-pos": "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+     "arbitrum-one": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+     "optimistic-ethereum": "0xfe8b128ba8c78aabc59d4c64cee7ff28e9379921",
+     "avalanche": "0xe15bcb9e0ea69e6ab9fa080c4c4a5632896298c3",
+     "xdai": "0x7ef541e2a22058048904fe5744f9c7e4c57af717"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 1326,
+    "categories": [
+     "Decentralized Exchange (DEX)",
+     "Exchange-based Tokens",
+     "Decentralized Finance (DeFi)",
+     "Yield Farming",
+     "Automated Market Maker (AMM)",
+     "Avalanche Ecosystem",
+     "Polygon Ecosystem",
+     "Near Protocol Ecosystem"
+    ],
+    "links": {
+     "homepage": [
+      "https://balancer.finance/"
+     ],
+     "whitepaper": "https://balancer.finance/whitepaper/",
+     "github": [
+      "https://github.com/balancer-labs/balancer-core",
+      "https://github.com/balancer-labs/balancer-exchange",
+      "https://github.com/balancer-labs/pool-management",
+      "https://github.com/balancer-labs/balancer-sor"
+     ],
+     "twitter": "Balancer",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xba100000625a3754423978a60c9317c58a424e3d",
+      "https://ethplorer.io/address/0xba100000625a3754423978a60c9317c58a424e3d",
+      "https://arbiscan.io/token/0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"
+     ]
+    },
+    "market": {
+     "price_usd": 0.129999,
+     "market_cap_usd": 9078162,
+     "fully_diluted_valuation_usd": 9408497,
+     "total_volume_24h_usd": 323827,
+     "circulating_supply": 69832909.24223976,
+     "total_supply": 72373979.79785001,
+     "max_supply": 96150704.0,
+     "ath_usd": 74.45,
+     "ath_date": "2021-05-04T05:35:02.000Z",
+     "ath_change_pct": -99.82539,
+     "atl_usd": 0.085704,
+     "atl_date": "2026-06-26T04:35:50.000Z",
+     "change_24h_pct": -0.80025,
+     "change_7d_pct": -2.22807,
+     "change_30d_pct": 17.50197,
+     "change_1y_pct": -86.54732
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:07:48.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/balancer"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "balancer-v2"
+   },
+   "ok": true,
+   "output": {
+    "name": "Balancer V2",
+    "slug": "2611",
+    "is_parent": false,
+    "other_protocols": [
+     "Balancer",
+     "Balancer V3",
+     "Balancer V2",
+     "Balancer V1",
+     "Balancer CoW AMM"
+    ],
+    "symbol": "BAL",
+    "category": "Dexs",
+    "chains": [
+     "Polygon zkEVM",
+     "Mode",
+     "Avalanche",
+     "Fraxtal",
+     "Base",
+     "xDai",
+     "Arbitrum",
+     "Ethereum",
+     "Polygon"
+    ],
+    "url": "https://balancer.fi/",
+    "twitter": "Balancer",
+    "github": null,
+    "gecko_id": null,
+    "parent_protocol": "parent#balancer",
+    "forked_from": null,
+    "audits": "2",
+    "audit_links": [
+     "https://github.com/balancer/balancer-v2-monorepo/tree/master/audits"
+    ],
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "Balancer is a protocol for programmable liquidity.",
+    "tvl_current_usd": 19006552,
+    "tvl_date": "2026-10-11T18:29:35+00:00",
+    "tvl_90d_ago_usd": 28110003,
+    "tvl_by_chain_usd": {
+     "Ethereum": 14652327.77047,
+     "Polygon": 2567783.45655,
+     "Arbitrum": 1166969.2004,
+     "xDai": 224993.93011,
+     "Base": 224171.1126,
+     "Avalanche": 140258.36473,
+     "Mode": 19692.72556,
+     "Fraxtal": 10355.92275
+    },
+    "hallmarks": [],
+    "source_url": "https://api.llama.fi/protocol/balancer-v2"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "balancer"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "balancer",
+    "matches": [
+     {
+      "date": "2026-08-30",
+      "name": "Balancer V1",
+      "classification": "Token & Share Accounting",
+      "technique": "Rounding Error",
+      "amount_usd": 234000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "116"
+     },
+     {
+      "date": "2026-04-19",
+      "name": "Custom sAVAX Rebalancer",
+      "classification": "Access Control",
+      "technique": "Arbitrary External Call",
+      "amount_usd": 64000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Avalanche"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     },
+     {
+      "date": "2025-11-03",
+      "name": "Balancer V2",
+      "classification": "Token & Share Accounting",
+      "technique": "Rounding Error",
+      "amount_usd": 128000000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum",
+       "Arbitrum",
+       "Base",
+       "Polygon",
+       "Sonic",
+       "Optimism"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "2611"
+     },
+     {
+      "date": "2023-09-19",
+      "name": "Balancer V2",
+      "classification": "Frontend & Infrastructure",
+      "technique": "Frontend Compromise",
+      "amount_usd": 238000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "2611"
+     },
+     {
+      "date": "2023-08-27",
+      "name": "Balancer V2",
+      "classification": "Oracle Manipulation",
+      "technique": "Spot Price Manipulation",
+      "amount_usd": 800000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "2611"
+     },
+     {
+      "date": "2020-06-28",
+      "name": "Balancer",
+      "classification": "Token & Share Accounting",
+      "technique": "Incorrect Share Accounting",
+      "amount_usd": 500000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     }
+    ],
+    "matches_total": 6
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "balancer/balancer-v2-monorepo"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/balancer/balancer-v2-monorepo",
+    "html_url": "https://github.com/balancer/balancer-v2-monorepo",
+    "full_name": "balancer/balancer-v2-monorepo",
+    "description": "Balancer V2 Monorepo",
+    "created_at": "2020-08-19T15:44:50Z",
+    "pushed_at": "2026-08-08T18:03:37Z",
+    "updated_at": "2026-10-11T06:50:37Z",
+    "stars": 364,
+    "forks": 377,
+    "open_issues": 1,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "GPL-3.0",
+    "language": "TypeScript",
+    "default_branch": "master",
+    "topics": [
+     "balancer",
+     "balancer-lifecycle-maintenance",
+     "balancer-type-protocol",
+     "balancer-v2",
+     "defi",
+     "ethereum",
+     "solidity"
+    ],
+    "latest_commit": {
+     "sha": "e91a2b643a49",
+     "date": "2026-08-03T18:35:31Z",
+     "message": "Update readme to reflect bounty status (#2659)\n\n* docs: update readme to reflect bounty status\n\n* Add SECURITY.md file"
+    },
+    "contributors": 42,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

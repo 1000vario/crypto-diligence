@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>What is known about this protocol or token?</h1>
+<p>Four investigators (on-chain, market, documentation, incidents) read public sources and write
+dated, sourced claims with a confidence level. An orchestrator flags the contradictions. The
+report takes a few minutes; the page waits for it.</p>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<form method="post" action="/reports">
+  <p><label>Name, symbol or 0x contract address<br>
+    <input type="text" name="query" required maxlength="120" placeholder="Uniswap, UNI or 0x1f98..."></label></p>
+  <p><label>Email (hashed, used only for the daily quota of {{ free_per_day }} reports)<br>
+    <input type="email" name="email" required></label></p>
+  <p><button type="submit">Produce the report</button></p>
+</form>
+<p class="muted">Free tier: {{ free_per_day }} reports per day per email; every report is public and
+cached. Paid tier (unlimited reports, portfolio watch, export):
+{% if paid_enabled %}enabled{% else %}designed, not enabled on this deployment{% endif %}.</p>
+<h2>Recent reports</h2>
+{% if reports %}
+<table>
+<tr><th>Subject</th><th>Date</th><th>Claims</th><th>Contradictions</th><th>Unsourced</th></tr>
+{% for r in reports %}
+<tr><td><a href="/reports/{{ r.id }}">{{ r.title }}</a></td><td>{{ r.created_at }}</td>
+<td>{{ r.claims }}</td><td>{{ r.contradictions }}</td><td>{{ r.unsourced }}</td></tr>
+{% endfor %}
+</table>
+{% else %}<p class="muted">None yet.</p>{% endif %}
+{% endblock %}

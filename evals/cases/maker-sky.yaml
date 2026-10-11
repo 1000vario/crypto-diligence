@@ -1,0 +1,99 @@
+id: maker-sky
+query: Maker
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  The protocol behind DAI, renamed Sky: the rebrand was announced in late August 2024, the
+  SKY and USDS tokens launched on 2024-09-18 at 1 MKR for 24,000 SKY, and a conversion penalty
+  for late upgrades applies from 2025-09-18. The legacy MKR token at
+  0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2 has its source verified on Sourcify, is not a
+  proxy, exposes mint, burn and setOwner selectors, its owner() returns the zero address and
+  its supply is about 83,517 tokens. CoinGecko flags the maker page as deprecated (no rank,
+  market cap 0) while the sky page has rank 54 and a market cap near 1.9 billion USD on
+  2026-10-11; DeFiLlama reports the protocol under the name Sky with about 6.2 billion USD of
+  TVL. The repository makerdao/dss (AGPL-3.0) was last pushed on 2022-05-18. Dated events in
+  the DeFiLlama exploit database: 8.32 million USD lost to a stale oracle price on 2020-03-12
+  (Black Thursday) and 538,000 USD lost by a liquidation keeper bot on 2026-10-06. A report
+  must reconcile the MKR and SKY identities instead of describing MKR as a dead token.
+identity:
+  name: Maker (now Sky)
+  symbol: MKR
+  chain: ethereum
+  address: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
+  coingecko_id: maker
+  defillama_slug: sky
+checks:
+  - tool: get_contract_source
+    input: {address: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2'}
+  - tool: get_token_metadata
+    input: {address: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2'}
+  - tool: coingecko_coin
+    input: {id_or_address: maker, lookup: id}
+  - tool: coingecko_coin
+    input: {id_or_address: sky, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: sky}
+  - tool: defillama_hacks
+    input: {name_filter: makerdao}
+  - tool: github_repo
+    input: {owner_repo: makerdao/dss}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2
+    title: Sourcify verification record of the MKR token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/maker
+    title: CoinGecko coin page of MKR (API, deprecated listing)
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/sky
+    title: CoinGecko coin page of SKY (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/sky
+    title: DeFiLlama protocol page
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/makerdao/dss
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+  - url: https://www.theblock.co/post/313235
+    title: The Block, 2024-08-27, MakerDAO rebrands to Sky with the SKY and USDS tokens
+    accessed: '2026-10-11'
+expected_facts:
+  - id: mint-function
+    agent: onchain
+    pattern: '(?i)mint'
+  - id: owner-zero
+    agent: onchain
+    pattern: '(?i)(0x0{40}|zero address|null address|no owner|owner (is )?(unset|zero|null|renounced|empty))'
+  - id: supply-83k
+    agent: onchain
+    pattern: '(?i)(83[,. ]?5\d\d|83\.5 ?k|83,5|83\.5 thousand)'
+  - id: deprecated-listing
+    agent: market
+    pattern: '(?i)(deprecat|no (market cap )?rank|rebrand|sky)'
+  - id: sky-market-data
+    agent: market
+    pattern: '(?i)(sky|usds)'
+  - id: rebrand
+    agent: docs
+    pattern: '(?i)(sky|rebrand|renam|24[,. ]?000)'
+  - id: licence
+    agent: docs
+    pattern: '(?i)(AGPL|licen[cs]e)'
+  - id: black-thursday-2020
+    agent: incidents
+    pattern: '(?i)(black thursday|march 2020|2020-03-12|stale oracle)'
+  - id: keeper-2026
+    agent: incidents
+    pattern: '(?i)(keeper|liquidation|2026-10|october 2026)'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: proxy
+    pattern: '(?i)(is (a|an) (proxy|upgradeable)|upgradeable proxy|eip-?1967 proxy)'
+expected_contradictions:
+  - id: mkr-versus-sky
+    pattern: '(?i)(sky|rebrand|renam|deprecat|migrat|MKR)'

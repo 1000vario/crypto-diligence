@@ -1,0 +1,101 @@
+id: usdt
+query: Tether
+category: sensitive
+truth_date: '2026-10-11'
+summary: >-
+  Fiat-backed stablecoin issued by Tether. The Ethereum contract at
+  0xdAC17F958D2ee523a2206206994597C13D831ec7 has its source verified on Sourcify (record of
+  2024-08-08), is not a proxy, and exposes issue, redeem, pause, unpause, addBlackList,
+  removeBlackList and destroyBlackFunds under a single owner; 6 decimals, supply about 88.3
+  billion on Ethereum. CoinGecko rank 3, market cap about 184 billion USD across chains, price
+  0.999 USD on 2026-10-11. Tether publishes no public source repository for the token; its
+  reserves are described by quarterly attestations. Dated events: a theft of about 31 million
+  USDT after a private key compromise on 2017-11-19 (DeFiLlama entry); the New York Attorney
+  General settlement of 18.5 million USD announced 2021-02-23 over reserve disclosures; the
+  CFTC order of 2021-10-15 with a 41 million USD penalty for misstatements about reserves.
+  Holder concentration is readable from Ethplorer and belongs in the report.
+identity:
+  name: Tether
+  symbol: USDT
+  chain: ethereum
+  address: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+  coingecko_id: tether
+  defillama_slug: null
+checks:
+  - tool: get_contract_source
+    input: {address: '0xdAC17F958D2ee523a2206206994597C13D831ec7', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xdAC17F958D2ee523a2206206994597C13D831ec7'}
+  - tool: get_token_metadata
+    input: {address: '0xdAC17F958D2ee523a2206206994597C13D831ec7'}
+  - tool: get_token_holders
+    input: {address: '0xdAC17F958D2ee523a2206206994597C13D831ec7', limit: 10}
+  - tool: coingecko_coin
+    input: {id_or_address: tether, lookup: id}
+  - tool: defillama_hacks
+    input: {name_filter: tether}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xdAC17F958D2ee523a2206206994597C13D831ec7
+    title: Sourcify verification record of the USDT token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/tether
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.ethplorer.io/getTopTokenHolders/0xdAC17F958D2ee523a2206206994597C13D831ec7?apiKey=freekey&limit=10
+    title: Ethplorer top holders
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (Tether, 2017-11-19, private key compromised)
+    accessed: '2026-10-11'
+  - url: https://ag.ny.gov/press-release/2021/attorney-general-james-ends-virtual-currency-trading-platform-bitfinexs-illegal
+    title: New York Attorney General, 2021-02-23, settlement with Tether and Bitfinex
+    accessed: '2026-10-11'
+  - url: https://www.cftc.gov/PressRoom/PressReleases/8450-21
+    title: CFTC press release 8450-21, 2021-10-15, order against Tether and Bitfinex
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: blacklist
+    agent: onchain
+    pattern: '(?i)(blacklist|destroyBlackFunds|freeze)'
+  - id: pause
+    agent: onchain
+    pattern: '(?i)paus'
+  - id: issue-or-redeem
+    agent: onchain
+    pattern: '(?i)(issue|redeem|mint)'
+  - id: single-owner
+    agent: onchain
+    pattern: '(?i)(owner|multi-?sig|controlled by)'
+  - id: supply-88-billion
+    agent: onchain
+    pattern: '(?i)(88[,. ]?\d\d\d[,. ]?\d\d\d[,. ]?\d\d\d|88(\.\d+)? ?billion|88 ?B\b)'
+  - id: holder-concentration
+    agent: onchain
+    pattern: '(?i)(holder|concentrat|top ?10|largest)'
+  - id: market-cap
+    agent: market
+    pattern: '(?i)(market cap|18\d(\.\d+)? ?billion)'
+  - id: peg-price
+    agent: market
+    pattern: '(?i)(0\.99|1\.00|\$ ?1\b|peg)'
+  - id: attestations-or-no-repo
+    agent: docs
+    pattern: '(?i)(attest|reserve|transparen|bdo|no (public )?(github|repositor|source repo)|not open[- ]source)'
+  - id: nyag-2021
+    agent: incidents
+    pattern: '(?i)(new york|nyag|attorney general|18\.5)'
+  - id: cftc-2021
+    agent: incidents
+    pattern: '(?i)(cftc|41 ?million|commodity futures)'
+  - id: theft-2017
+    agent: incidents
+    pattern: '(?i)(2017|30\.9|31 ?million|private key|compromis)'
+forbidden_facts:
+  - id: no-controls
+    pattern: '(?i)(no (blacklist|pause|freeze)|cannot (be )?(paused|frozen|blacklisted)|immutable|no (regulatory|legal|enforcement) (action|proceeding)s?)'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions: []

@@ -1,0 +1,81 @@
+id: nomad
+query: Nomad bridge
+category: exploit
+truth_date: '2026-10-11'
+summary: >-
+  Cross-chain bridge drained of about 190 million USD on 2022-08-01 after an upgrade marked a
+  zero root as a trusted root, so forged messages passed the proof check and hundreds of
+  addresses copied the first transaction. DeFiLlama lists the protocol as a Bridge with about
+  380,000 USD of TVL on 2026-10-11, no audit link, listed 2022-04-25. The repository
+  nomad-xyz/monorepo (Apache-2.0) was last pushed 2025-09-01. There is no Nomad governance
+  token: a CoinGecko search for the name returns unrelated assets (a NOM token with no rank,
+  Nomad Exiles, and the bridged USDC and WETH on Moonbeam that the bridge issued). The
+  identity step must say so; a report that describes one of those tokens as the protocol
+  token fails the case.
+identity:
+  name: Nomad
+  symbol: null
+  chain: ethereum
+  address: null
+  coingecko_id: null
+  defillama_slug: nomad
+checks:
+  - tool: coingecko_search
+    input: {query: Nomad bridge}
+  - tool: defillama_search
+    input: {query: Nomad}
+  - tool: defillama_protocol
+    input: {slug: nomad}
+  - tool: defillama_hacks
+    input: {name_filter: nomad}
+  - tool: github_repo
+    input: {owner_repo: nomad-xyz/monorepo}
+sources:
+  - url: https://api.llama.fi/protocol/nomad
+    title: DeFiLlama protocol page (Bridge, TVL, listing date)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (Nomad, 2022-08-01, 190 million USD, forged proof)
+    accessed: '2026-10-11'
+  - url: https://rekt.news/nomad-rekt/
+    title: rekt.news on the Nomad bridge exploit of 2022-08-01
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/search?query=Nomad
+    title: CoinGecko search (API), only unrelated or bridged assets
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/nomad-xyz/monorepo
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: no-native-token
+    agent: onchain
+    pattern: '(?i)(no (native |governance |protocol )?token|not (a )?token|bridge contract|identity|ambigu|unrelated|different (token|asset|project)|no (ethereum )?(contract|address) (was )?(identified|found|resolved))'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked|380)'
+  - id: bridge-category
+    agent: market
+    pattern: '(?i)bridge'
+  - id: licence-or-repo
+    agent: docs
+    pattern: '(?i)(apache|licen[cs]e|github|monorepo|nomad-xyz)'
+  - id: exploit-date
+    agent: incidents
+    pattern: '(?i)(august 2022|2022-08-01|aug(ust)? 1,? 2022)'
+  - id: amount-190-million
+    agent: incidents
+    pattern: '(?i)(190|19\d(\.\d+)? ?million)'
+  - id: technique
+    agent: incidents
+    pattern: '(?i)(forged|invalid|proof|initiali[sz]|zero (hash|root)|trusted root|copy-?past|replay)'
+  - id: bridge-exploit
+    agent: incidents
+    pattern: '(?i)bridge'
+forbidden_facts:
+  - id: no-exploit
+    pattern: '(?i)(no (known |recorded |reported |major )?(exploit|hack|incident)|never (been )?(hacked|exploited))'
+  - id: bridged-asset-as-protocol-token
+    pattern: '(?i)(nomad (governance |native |protocol )?token (is|trades|has a (price|market cap))|the protocol token (nom|nomad-bridged))'
+expected_contradictions:
+  - id: identity-ambiguity
+    pattern: '(?i)(identity|ambigu|unrelated|different (token|asset|project)|no (native |governance )?token|wrong (token|coin)|bridged)'

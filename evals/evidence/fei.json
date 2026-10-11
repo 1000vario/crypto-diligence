@@ -1,0 +1,251 @@
+{
+ "case": "fei",
+ "query": "Fei USD",
+ "category": "abandoned",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T14:06:21Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0x956F47F50A910163D8BF957Cf5846D573E7f87CA"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 8004,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "mint(address,uint256)": true,
+     "burn(uint256)": true,
+     "burnFrom(address,uint256)": true,
+     "pause()": true,
+     "unpause()": true,
+     "paused()": true
+    },
+    "selectors_in_implementation": null,
+    "owner": null,
+    "paused": false,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0x956F47F50A910163D8BF957Cf5846D573E7f87CA"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Fei USD",
+    "symbol": "FEI",
+    "decimals": 18,
+    "total_supply_raw": "4003431124865166873976375",
+    "total_supply": 4003431.124865167
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "fei-usd",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "fei-usd",
+    "symbol": "fei",
+    "name": "Fei USD",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0x956f47f50a910163d8bf957cf5846d573e7f87ca"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 1917,
+    "categories": [
+     "Stablecoins",
+     "Decentralized Finance (DeFi)",
+     "USD Stablecoin",
+     "Ethereum Ecosystem",
+     "Coinbase Ventures Portfolio",
+     "Andreessen Horowitz (a16z) Portfolio",
+     "Algorithmic Stablecoin",
+     "Fiat-backed Stablecoin"
+    ],
+    "links": {
+     "homepage": [
+      "https://fei.money/",
+      "https://app.fei.money/",
+      "https://docs.fei.money/"
+     ],
+     "whitepaper": null,
+     "github": [],
+     "twitter": "feiprotocol",
+     "blockchain_sites": [
+      "https://etherscan.io/address/0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+      "https://intel.arkm.com/explorer/token/fei-usd",
+      "https://etherscan.io/token/0x956f47f50a910163d8bf957cf5846d573e7f87ca"
+     ]
+    },
+    "market": {
+     "price_usd": 0.999504,
+     "market_cap_usd": 3746695,
+     "fully_diluted_valuation_usd": 4001444,
+     "total_volume_24h_usd": 4823.91,
+     "circulating_supply": 3748556.4287226824,
+     "total_supply": 4003431.124865167,
+     "max_supply": null,
+     "ath_usd": 5.55,
+     "ath_date": "2024-03-16T05:26:58.000Z",
+     "ath_change_pct": -81.99591,
+     "atl_usd": 0.15544,
+     "atl_date": "2023-12-30T06:09:50.000Z",
+     "change_24h_pct": 0.01026,
+     "change_7d_pct": -0.03201,
+     "change_30d_pct": -0.02902,
+     "change_1y_pct": 0.04226
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:10:51.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/fei-usd"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "fei-protocol"
+   },
+   "ok": true,
+   "output": {
+    "name": "Fei Protocol",
+    "slug": "255",
+    "is_parent": false,
+    "other_protocols": [],
+    "symbol": "TRIBE",
+    "category": "Algo-Stables",
+    "chains": [
+     "Ethereum"
+    ],
+    "url": "",
+    "twitter": "feiprotocol",
+    "github": [
+     "fei-protocol"
+    ],
+    "gecko_id": "tribe-2",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": "2",
+    "audit_links": [
+     "https://docs.fei.money/audit"
+    ],
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "FEI uses a new kind of stablecoin mechanism called direct incentives. It is more capital efficient, has a fair distribution, and is fully decentralized. The protocol uses the value it controls to maintain liquid secondary markets.",
+    "tvl_current_usd": 7,
+    "tvl_date": "2026-10-11T16:04:11+00:00",
+    "tvl_90d_ago_usd": 5,
+    "tvl_by_chain_usd": {
+     "Ethereum": 7.60106
+    },
+    "hallmarks": [
+     {
+      "date": "2022-04-30T00:00:00+00:00",
+      "text": "Exploit $80M FEI"
+     }
+    ],
+    "source_url": "https://api.llama.fi/protocol/fei-protocol"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "fei"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "fei",
+    "matches": [],
+    "matches_total": 0
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "fei-protocol/fei-protocol-core"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/fei-protocol/fei-protocol-core",
+    "html_url": "https://github.com/fei-protocol/fei-protocol-core",
+    "full_name": "fei-protocol/fei-protocol-core",
+    "description": "FEI Protocol smart contract code, tests, and scripts/utilities for DAO proposals.",
+    "created_at": "2020-12-29T00:25:16Z",
+    "pushed_at": "2023-09-07T06:00:01Z",
+    "updated_at": "2026-08-21T11:18:17Z",
+    "stars": 192,
+    "forks": 95,
+    "open_issues": 143,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "GPL-3.0",
+    "language": "TypeScript",
+    "default_branch": "develop",
+    "topics": [],
+    "latest_commit": {
+     "sha": "be704ad65a84",
+     "date": "2022-10-14T16:39:24Z",
+     "message": "Merge pull request #1099 from fei-protocol/check-e2es\n\nUpdate e2e tests + cleanup proposals config"
+    },
+    "contributors": 26,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

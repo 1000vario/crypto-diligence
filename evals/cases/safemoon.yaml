@@ -1,0 +1,85 @@
+id: safemoon
+query: SafeMoon
+category: abandoned
+truth_date: '2026-10-11'
+summary: >-
+  Reflection token launched in March 2021 on BNB Smart Chain (V1 contract
+  0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3, V2 0x42981d0bfbAf196529376EE702F2a9Eb9092fcB5),
+  which the Ethereum-only onchain tools cannot read. CoinGecko now files the main listing
+  safemoon-2 (SFM) under Solana with rank 3682, price near 8e-7 USD and the categories Meme
+  and Alleged SEC Securities on 2026-10-11; several other listings carry the same name and
+  the identity step must say which one it describes. On 2023-03-28 an access-control flaw let
+  an attacker burn tokens from the liquidity pool and take about 8.9 million USD (DeFiLlama
+  entry). On 2023-11-01 the SEC charged SafeMoon LLC, SafeMoon US LLC and three executives
+  with fraud and an unregistered offering; the DOJ unsealed a parallel indictment. In May
+  2025 a Brooklyn federal jury convicted the CEO on three counts and in February 2026 he was
+  sentenced to 100 months in prison. The repository safemoonprotocol/Safemoon.sol holds the
+  V1 source.
+identity:
+  name: SafeMoon
+  symbol: SFM
+  chain: bsc
+  address: null
+  coingecko_id: safemoon-2
+  defillama_slug: null
+checks:
+  - tool: coingecko_search
+    input: {query: SafeMoon}
+  - tool: coingecko_coin
+    input: {id_or_address: safemoon-2, lookup: id}
+  - tool: defillama_hacks
+    input: {name_filter: safemoon}
+  - tool: github_repo
+    input: {owner_repo: safemoonprotocol/Safemoon.sol}
+sources:
+  - url: https://api.coingecko.com/api/v3/coins/safemoon-2
+    title: CoinGecko coin page (API), categories and platforms
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (Safemoon, 2023-03-28, 8.9 million USD, improper access control)
+    accessed: '2026-10-11'
+  - url: https://www.sec.gov/newsroom/press-releases/2023-229
+    title: SEC press release 2023-229, 2023-11-01, charges against SafeMoon and its executives
+    accessed: '2026-10-11'
+  - url: https://www.justice.gov/usao-edny/pr/safemoon-ceo-convicted-multi-million-dollar-cryptocurrency-fraud-scheme
+    title: US Attorney EDNY, May 2025, SafeMoon CEO convicted
+    accessed: '2026-10-11'
+  - url: https://www.irs.gov/compliance/criminal-investigation/ceo-of-digital-asset-company-safemoon-sentenced-to-100-months-in-prison-for-multimillion-dollar-crypto-fraud-scheme
+    title: IRS Criminal Investigation, February 2026, 100-month sentence
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/safemoonprotocol/Safemoon.sol
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: not-on-ethereum
+    agent: onchain
+    pattern: '(?i)(bsc|bnb|binance smart chain|solana|no ethereum|not (on|an) ethereum|not supported|ethereum[- ]only|cannot (analy|read|verify)|other chain|no (ethereum )?(contract|address))'
+  - id: price-or-rank
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: sec-securities-label
+    agent: market
+    pattern: '(?i)(sec\b|securit|meme)'
+  - id: repository
+    agent: docs
+    pattern: '(?i)(github|repositor|Safemoon\.sol|safemoon\.com)'
+  - id: several-versions
+    agent: docs
+    pattern: '(?i)(v2|v1|migrat|consolidat|several (listings|versions|tokens)|multiple (listings|versions|tokens))'
+  - id: sec-charges-2023
+    agent: incidents
+    pattern: '(?i)(sec\b|securities and exchange|november 2023|2023-11)'
+  - id: criminal-case
+    agent: incidents
+    pattern: '(?i)(doj|department of justice|indict|convict|jury|sentenc|prison|months)'
+  - id: exploit-march-2023
+    agent: incidents
+    pattern: '(?i)(march 2023|2023-03|8\.9|access control|liquidity pool|burn)'
+forbidden_facts:
+  - id: no-legal-action
+    pattern: '(?i)(no (regulatory|legal|enforcement) (action|proceeding)s?|never (been )?(charged|sued|indicted)|no (known |recorded |reported )?(exploit|hack|incident))'
+  - id: ethereum-contract-verified
+    pattern: '(?i)(ethereum (mainnet )?contract (is )?(verified|at 0x)|verified on sourcify)'
+expected_contradictions:
+  - id: chain-and-listing-ambiguity
+    pattern: '(?i)(solana|bsc|bnb|binance|chain|several (listings|versions|tokens)|multiple (listings|versions|tokens|contracts)|v1|v2|which (token|listing|contract))'

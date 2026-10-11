@@ -1,0 +1,80 @@
+id: terra-ustc
+query: TerraClassicUSD
+category: exploit
+truth_date: '2026-10-11'
+summary: >-
+  The algorithmic stablecoin of the original Terra chain, now called TerraClassicUSD (USTC).
+  It is a native asset of the Terra Classic chain (denom uusd), not an Ethereum contract, so
+  the onchain investigation can only report that limit. UST lost its dollar peg in May 2022:
+  it wobbled on 2022-05-07, traded near 0.35 USD on 2022-05-09 and LUNA went from about 80
+  USD to fractions of a cent by 2022-05-12, with more than 40 billion USD of market value
+  erased. CoinGecko still files it under Stablecoins and under Alleged SEC Securities while
+  its price is about 0.005 USD on 2026-10-11 (rank 697). The SEC charged Terraform Labs and
+  its CEO on 2023-02-16; a jury found them liable in April 2024 and a settlement followed in
+  June 2024. The DeFiLlama exploit database only lists unrelated or later rows (Terra 2.0 on
+  2024-07-31, Terraport, a 2022-04-21 phishing entry).
+identity:
+  name: TerraClassicUSD
+  symbol: USTC
+  chain: terra
+  address: null
+  coingecko_id: terrausd
+  defillama_slug: null
+checks:
+  - tool: coingecko_search
+    input: {query: TerraClassicUSD}
+  - tool: coingecko_coin
+    input: {id_or_address: terrausd, lookup: id}
+  - tool: coingecko_market_chart
+    input: {coin_id: terrausd, days: 90}
+  - tool: defillama_hacks
+    input: {name_filter: terra}
+sources:
+  - url: https://api.coingecko.com/api/v3/coins/terrausd
+    title: CoinGecko coin page (API), price, categories and platforms
+    accessed: '2026-10-11'
+  - url: https://www.coindesk.com/learn/the-fall-of-terra-a-timeline-of-the-meteoric-rise-and-crash-of-ust-and-luna
+    title: CoinDesk timeline of the May 2022 collapse of UST and LUNA
+    accessed: '2026-10-11'
+  - url: https://www.sec.gov/newsroom/press-releases/2023-32
+    title: SEC press release 2023-32, 2023-02-16, charges against Terraform Labs and its CEO
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/lido
+    title: DeFiLlama hallmark "UST depeg" dated 2022-05-07 on third-party protocol pages
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+expected_facts:
+  - id: not-an-ethereum-contract
+    agent: onchain
+    pattern: '(?i)(no (ethereum|evm|mainnet) (contract|address)|not (an )?(ethereum|erc-?20)|terra (chain|blockchain|classic)|cosmos|native (asset|coin|token)|uusd|outside (the )?scope|cannot (analy|read|verify))'
+  - id: price-near-zero
+    agent: market
+    pattern: '(?i)(0\.00\d|less than (one|1) cent|fraction of a cent|below \$?0\.01|half a cent)'
+  - id: still-labelled-stablecoin
+    agent: market
+    pattern: '(?i)(stablecoin|categor|label)'
+  - id: sec-label-or-action
+    agent: docs
+    pattern: '(?i)(sec\b|securities and exchange|alleged sec securities|securit)'
+  - id: depeg-may-2022
+    agent: incidents
+    pattern: '(?i)(depeg|de-peg|lost (its|the) (dollar )?peg|collapse)'
+  - id: dated-may-2022
+    agent: incidents
+    pattern: '(?i)(may 2022|2022-05)'
+  - id: sec-charges-2023
+    agent: incidents
+    pattern: '(?i)(sec\b|securities and exchange|fraud|charged)'
+  - id: court-outcome
+    agent: incidents
+    pattern: '(?i)(jury|liable|settle|verdict|2024)'
+forbidden_facts:
+  - id: peg-intact
+    pattern: '(?i)(currently (pegged|at par)|still pegged|peg (is |remains )?(intact|maintained|stable)|trades? at (about |around )?(\$ ?)?1(\.00)? (usd|dollar))'
+  - id: ethereum-contract-verified
+    pattern: '(?i)(ethereum (mainnet )?contract (is )?(verified|at 0x)|verified on sourcify)'
+expected_contradictions:
+  - id: stablecoin-label-versus-price
+    pattern: '(?i)(stablecoin|peg|categor|label)'

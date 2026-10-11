@@ -1,0 +1,103 @@
+id: balancer
+query: Balancer
+category: exploit
+truth_date: '2026-10-11'
+summary: >-
+  Automated market maker. The BAL token at 0xba100000625a3754423978a60c9317c58a424e3D has its
+  source verified on Sourcify, exposes mint, burn and burnFrom selectors and a total supply of
+  about 72.4 million; CoinGecko rank 1325, market cap about 9 million USD on 2026-10-11.
+  DeFiLlama TVL about 46 million USD for the parent (balancer-v2 about 19 million USD) with
+  audits in the balancer-v2-monorepo repository (GPL-3.0, last push 2026-08-03). On 2025-11-03
+  a rounding error in the upscaling of Composable Stable Pools (the _upscaleArray path) was
+  exploited across six networks: DeFiLlama records 128 million USD, Check Point 128.64
+  million, OpenZeppelin about 120 million, BlockSec more than 125 million, and the Balancer
+  post-mortem puts user funds at 94.8 million USD; Balancer V3 was not affected. Earlier rows:
+  a 500,000 USD incorrect share accounting on 2020-06-28, an 800,000 USD spot price
+  manipulation on 2023-08-27, a 238,000 USD front-end compromise on 2023-09-19, and a 234,000
+  USD rounding error on Balancer V1 on 2026-08-30. A report must show the spread of the
+  November 2025 figures rather than pick one.
+identity:
+  name: Balancer
+  symbol: BAL
+  chain: ethereum
+  address: '0xba100000625a3754423978a60c9317c58a424e3d'
+  coingecko_id: balancer
+  defillama_slug: balancer
+checks:
+  - tool: get_contract_source
+    input: {address: '0xba100000625a3754423978a60c9317c58a424e3D', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xba100000625a3754423978a60c9317c58a424e3D'}
+  - tool: get_token_metadata
+    input: {address: '0xba100000625a3754423978a60c9317c58a424e3D'}
+  - tool: coingecko_coin
+    input: {id_or_address: balancer, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: balancer-v2}
+  - tool: defillama_hacks
+    input: {name_filter: balancer}
+  - tool: github_repo
+    input: {owner_repo: balancer/balancer-v2-monorepo}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xba100000625a3754423978a60c9317c58a424e3D
+    title: Sourcify verification record of the BAL token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/balancer
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/balancer-v2
+    title: DeFiLlama protocol page of Balancer V2, TVL and audits
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (Balancer V2, 2025-11-03, 128 million USD, rounding error)
+    accessed: '2026-10-11'
+  - url: https://www.openzeppelin.com/news/understanding-the-balancer-v2-exploit
+    title: OpenZeppelin analysis of the 2025-11-03 Balancer V2 exploit (about 120 million USD)
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/balancer/balancer-v2-monorepo
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-or-burn
+    agent: onchain
+    pattern: '(?i)(mint|burn)'
+  - id: supply-72-million
+    agent: onchain
+    pattern: '(?i)(72[,. ]?\d\d\d[,. ]?\d\d\d|72(\.\d)? ?million|72 ?M\b)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: gpl-licence
+    agent: docs
+    pattern: '(?i)(GPL|licen[cs]e)'
+  - id: audits
+    agent: docs
+    pattern: '(?i)audit'
+  - id: exploit-date-2025
+    agent: incidents
+    pattern: '(?i)(november 2025|2025-11-0?3|nov(ember)? 3,? 2025)'
+  - id: rounding-technique
+    agent: incidents
+    pattern: '(?i)(rounding|_upscaleArray|upscal|precision|composable stable)'
+  - id: amount
+    agent: incidents
+    pattern: '(?i)(1[0-2]\d(\.\d+)? ?(m\b|million)|9[0-9](\.\d+)? ?(m\b|million))'
+  - id: earlier-incidents
+    agent: incidents
+    pattern: '(?i)(front-?end|dns|2023|2020|spot price)'
+forbidden_facts:
+  - id: no-exploit
+    pattern: '(?i)(no (known |recorded |reported |major )?(exploit|hack|incident)|never (been )?(hacked|exploited))'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: v3-affected
+    pattern: '(?i)(v3 (was|is|were) (also )?(affected|exploited|drained|hit))'
+expected_contradictions:
+  - id: loss-amount-2025
+    pattern: '(?i)(9[0-9](\.\d+)? ?(m\b|million)|1[0-2]\d(\.\d+)? ?(m\b|million)|amount|figures? (differ|vary)|estimate|discrepan)'

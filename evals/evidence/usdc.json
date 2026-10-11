@@ -1,0 +1,326 @@
+{
+ "case": "usdc",
+ "query": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+ "category": "sensitive",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T13:20:07Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 2186,
+    "proxy": {
+     "detected": true,
+     "pattern": "zeppelinos",
+     "implementation": "0x43506849d7c04f9138d1a2050bbf3a0c054402dd",
+     "admin": "0x807a96288a1a408dbc13de2b1d087d10356395d2"
+    },
+    "selectors_in_proxy_or_contract": {
+     "upgradeTo(address)": true,
+     "upgradeToAndCall(address,bytes)": true
+    },
+    "selectors_in_implementation": {
+     "mint(address,uint256)": true,
+     "burn(uint256)": true,
+     "pause()": true,
+     "unpause()": true,
+     "paused()": true,
+     "owner()": true,
+     "transferOwnership(address)": true,
+     "blacklist(address)": true,
+     "unBlacklist(address)": true,
+     "isBlacklisted(address)": true,
+     "masterMinter()": true,
+     "configureMinter(address,uint256)": true
+    },
+    "owner": "0xfcb19e6a322b27c06842a71e8c725399f049ae3a",
+    "paused": false,
+    "notes": [
+     "Upgradeable proxy: the implementation can be replaced by whoever controls the admin or owner, so today's code is not a guarantee about tomorrow's.",
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ],
+    "implementation_code_size_bytes": 23464
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "total_supply_raw": "48529365505659521",
+    "total_supply": 48529365505.65952
+   }
+  },
+  {
+   "tool": "get_token_holders",
+   "input": {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "limit": 10
+   },
+   "ok": true,
+   "output": {
+    "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "source_urls": [
+     "https://api.ethplorer.io/getTokenInfo/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?apiKey=freekey",
+     "https://api.ethplorer.io/getTopTokenHolders/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?apiKey=freekey"
+    ],
+    "holders_count": 9057264,
+    "owner_field": "0xfcb19e6a322b27c06842a71e8c725399f049ae3a",
+    "decimals": "6",
+    "total_supply_raw": "48529356479338368",
+    "top_holders": [
+     {
+      "address": "0x37305b1cd40574e4c5ce33f8e8306be057fd7341",
+      "share_pct": 9.2,
+      "is_contract": false
+     },
+     {
+      "address": "0xe1940f578743367f38d3f25c2d2d32d6636929b6",
+      "share_pct": 3.5,
+      "is_contract": true
+     },
+     {
+      "address": "0xffa69c0080582098af595156240214b742735a5e",
+      "share_pct": 3.26,
+      "is_contract": true
+     },
+     {
+      "address": "0xad354cfbaa4a8572dd6df021514a3931a8329ef5",
+      "share_pct": 2.88,
+      "is_contract": true
+     },
+     {
+      "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
+      "share_pct": 2.1,
+      "is_contract": true
+     },
+     {
+      "address": "0xee7ae85f2fe2239e27d9c1e23fffe168d63b4055",
+      "share_pct": 1.61,
+      "is_contract": true
+     },
+     {
+      "address": "0x38aaef3782910bdd9ea3566c839788af6ff9b200",
+      "share_pct": 1.56,
+      "is_contract": true
+     },
+     {
+      "address": "0x3b4d794a66304f130a4db8f2551b0070dfcf5ca7",
+      "share_pct": 1.27,
+      "is_contract": true
+     },
+     {
+      "address": "0x01b8697695eab322a339c4bf75740db75dc9375e",
+      "share_pct": 1.15,
+      "is_contract": false
+     },
+     {
+      "address": "0x36db199f0a1cd131ad0b5cf4fe94286faab9fda5",
+      "share_pct": 1.11,
+      "is_contract": true
+     }
+    ],
+    "top_n_share_pct": 27.64,
+    "top_n": 10,
+    "notes": [
+     "A large holder that is a contract is often an exchange, a bridge, a staking or a treasury contract; its share is not one person's. Say which when known."
+    ]
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "lookup": "contract"
+   },
+   "ok": true,
+   "output": {
+    "id": "usd-coin",
+    "symbol": "usdc",
+    "name": "USDC",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "monad": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+     "polkadot": "1337",
+     "sui": "0xdba34672e30cb065b1f93e3ab55318768fd6fef66c15942c9f7cb846e2f900e7::usdc::USDC",
+     "xrp": "5553444300000000000000000000000000000000.rGm7WCVp9gb4jZHWTEtGUr4dd74z2XuWhE",
+     "sonic": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+     "arc": "0x3600000000000000000000000000000000000000",
+     "hedera-hashgraph": "0.0.456858",
+     "ink": "0x2d270e6886d130d724215a266106e6832161eaed",
+     "unichain": "0x078d782b760474a361dda0af3839290b0ef57ad6",
+     "xdc-network": "0xfa2958cb79b0491cc627c1557f441ef849ca8eb1",
+     "hyperevm": "0xb88339cb7199b77e23db6e890353e22632ba630f",
+     "plume-network": "0x222365ef19f7947e5484218551b56bb3965aa7af",
+     "sei-v2": "0xe15fc38f6d8c56af07bbcbe3baf5708a2bf42392",
+     "near-protocol": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+     "base": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+     "tron": "TEkxiTehnzSmSe2XqrBj4w32RUN966rdz8",
+     "pharos": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+     "celo": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+     "cronos": "0x3d7f2c478aafdb65542bcb44bceec05849999d2d",
+     "world-chain": "0x79a02482a880bce3f13e09da970dc34db4cd24d1",
+     "polygon-pos": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+     "arbitrum-one": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+     "solana": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+     "starknet": "0x033068f6539f8e6e6b131e6b2b814e6c34a5224bc66947c47dab9dfee93b35fb",
+     "optimistic-ethereum": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+     "aptos": "0xbae207659db88bea0cbead6da0ed00aac12edcdda169e591cd41c94180b46f3b",
+     "avalanche": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+     "algorand": "31566704",
+     "injective": "0xa00c59ff5a080d2b954d0c75e46e22a0c371235a",
+     "stellar": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "morph-l2": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
+     "x-layer": "0xb6ceceab302e2e4948951ee7843fc24e92933061",
+     "hyperliquid": "0x6d1e7cde53ba9467b783cb7c530ce054",
+     "plasma": "0x2d661c89d812261039af9764eceaaee884f5f67f",
+     "zksync": "0x1d17cbcf0d6d143135ae902365d2e5e2a16538d4"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 6,
+    "categories": [
+     "Stablecoins",
+     "USD Stablecoin",
+     "Solana Ecosystem",
+     "Avalanche Ecosystem",
+     "Polygon Ecosystem",
+     "Near Protocol Ecosystem",
+     "Arbitrum Ecosystem",
+     "Celo Ecosystem"
+    ],
+    "links": {
+     "homepage": [
+      "https://www.circle.com/en/usdc"
+     ],
+     "whitepaper": "https://www.circle.com/legal/mica-usdc-whitepaper",
+     "github": [
+      "https://github.com/centrehq/centre-tokens"
+     ],
+     "twitter": null,
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "https://bscscan.com/token/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "https://nearblocks.io/token/17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1"
+     ]
+    },
+    "market": {
+     "price_usd": 0.999669,
+     "market_cap_usd": 72941981462,
+     "fully_diluted_valuation_usd": 72960254801,
+     "total_volume_24h_usd": 8723180354,
+     "circulating_supply": 72966704709.43361,
+     "total_supply": 72984984242.80147,
+     "max_supply": null,
+     "ath_usd": 1.043,
+     "ath_date": "2018-11-14T16:00:00.000Z",
+     "ath_change_pct": -4.19715,
+     "atl_usd": 0.877647,
+     "atl_date": "2023-03-11T00:02:13.000Z",
+     "change_24h_pct": -0.00207,
+     "change_7d_pct": -0.02918,
+     "change_30d_pct": -0.0135,
+     "change_1y_pct": -0.01361
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:14:53.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/ethereum/contract/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "usdc"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "usdc",
+    "matches": [],
+    "matches_total": 0
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "circlefin/stablecoin-evm"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/circlefin/stablecoin-evm",
+    "html_url": "https://github.com/circlefin/stablecoin-evm",
+    "full_name": "circlefin/stablecoin-evm",
+    "description": "Source repository for smart contracts used by Circle's stablecoins on EVM-compatible blockchains",
+    "created_at": "2018-02-05T15:05:54Z",
+    "pushed_at": "2026-08-12T20:25:11Z",
+    "updated_at": "2026-10-09T15:01:23Z",
+    "stars": 805,
+    "forks": 592,
+    "open_issues": 132,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "Apache-2.0",
+    "language": "TypeScript",
+    "default_branch": "master",
+    "topics": [],
+    "latest_commit": {
+     "sha": "fc85788bc7c2",
+     "date": "2026-08-12T20:20:06Z",
+     "message": "chore: add bridged USDC standard (#674)"
+    },
+    "contributors": 30,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

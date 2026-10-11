@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}{{ row.title }}, crypto-diligence{% endblock %}
+{% block content %}
+{% set ident = report.identity %}
+<h1>{{ row.title }}</h1>
+<p class="muted">Generated {{ report.generated_at }}. Mode {{ report.mode }}. Provider
+{{ report.provider }}. Run {{ report.run_id }}.
+<a href="/reports/{{ report.run_id }}.json">JSON</a> |
+<a href="/reports/{{ report.run_id }}.md">Markdown</a></p>
+
+<h2>Subject</h2>
+<ul>
+<li>Query: {{ ident.query }}</li>
+<li>Resolved: {{ "yes" if ident.resolved else "no" }}</li>
+{% if ident.address %}<li>Contract: {{ ident.address }} ({{ ident.chain }})</li>{% endif %}
+{% if ident.coingecko_id %}<li>CoinGecko id: {{ ident.coingecko_id }}</li>{% endif %}
+{% if ident.defillama_slug %}<li>DeFiLlama slug: {{ ident.defillama_slug }}</li>{% endif %}
+{% if ident.website %}<li>Website: <a href="{{ ident.website }}" rel="nofollow">{{ ident.website }}</a></li>{% endif %}
+{% for n in ident.notes %}<li>Note: {{ n }}</li>{% endfor %}
+</ul>
+
+<h2>Claims</h2>
+{% for agent, finding in report.findings.items() %}
+<h3>{{ agent }} ({{ finding.claims|length }})</h3>
+{% if finding.failed %}<p class="error">Investigator failed: {{ finding.failure_reason }}</p>{% endif %}
+{% for c in finding.claims %}
+<div class="claim{% if c.unsourced %} unsourced{% endif %}">
+  <div><strong>{{ c.id }}</strong> {{ c.text }}</div>
+  <div class="tag"><span class="conf-{{ c.confidence }}">confidence {{ c.confidence }}</span>
+  {% if c.date %}| {{ c.date }}{% endif %}{% if c.tags %} | {{ c.tags|join(", ") }}{% endif %}</div>
+  {% if c.sources %}<div class="tag">Sources:
+  {% for s in c.sources %}<a href="{{ s.url }}" rel="nofollow">{{ s.title or s.url }}</a>{% if not loop.last %}; {% endif %}{% endfor %}</div>
+  {% else %}<div class="error">No source: this claim failed the sourcing rule.</div>{% endif %}
+</div>
+{% endfor %}
+{% endfor %}
+
+<h2>Contradictions</h2>
+{% if report.contradictions %}
+<ul>{% for c in report.contradictions %}
+<li><strong>{{ c.topic }}</strong> (severity {{ c.severity }}; claims {{ c.claim_ids|join(", ") }}): {{ c.description }}</li>
+{% endfor %}</ul>
+{% else %}<p>None flagged by the contradiction pass.</p>{% endif %}
+
+<h2>Open questions</h2>
+<ul>
+{% for agent, finding in report.findings.items() %}{% for q in finding.open_questions %}
+<li>{{ agent }}: {{ q }}</li>
+{% endfor %}{% endfor %}
+</ul>
+
+<h2>Quality checks</h2>
+<ul>
+<li>Claims without a source: {{ report.quality.unsourced_claim_ids|length }}</li>
+<li>Neutrality violations: {{ report.quality.neutrality_violations|length }}</li>
+<li>Investigators failed: {{ report.quality.agents_failed|join(", ") or "none" }}</li>
+{% for n in report.orchestrator_notes %}<li>Orchestrator note: {{ n }}</li>{% endfor %}
+</ul>
+
+<h2>Cost and duration</h2>
+<table>
+<tr><td>Total cost</td><td>{% if report.cost.total_usd is not none %}${{ "%.4f"|format(report.cost.total_usd) }}{% else %}unknown{% endif %}</td></tr>
+<tr><td>Model calls</td><td>{{ report.cost.model_calls }}</td></tr>
+<tr><td>Tool calls</td><td>{{ report.cost.tool_calls }}</td></tr>
+<tr><td>Web search requests</td><td>{{ report.cost.web_search_requests }}</td></tr>
+<tr><td>Input / output tokens</td><td>{{ report.cost.usage.input_tokens }} / {{ report.cost.usage.output_tokens }}</td></tr>
+<tr><td>Duration</td><td>{{ report.duration_s }} s</td></tr>
+</table>
+<p class="muted">{{ report.cost.pricing_note }}</p>
+{% endblock %}

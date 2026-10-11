@@ -1,0 +1,85 @@
+id: chainlink
+query: Chainlink
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Oracle network. The LINK token at 0x514910771AF9Ca656af840dff83E8264EcF986CA has its source
+  verified on Sourcify, is not a proxy, exposes no mint, pause, blacklist or upgrade selector
+  and has a fixed supply of 1,000,000,000. CoinGecko rank 13 with a market cap near 10.3
+  billion USD on 2026-10-11; DeFiLlama reports about 2.0 billion USD for the protocol page.
+  The repository smartcontractkit/chainlink was pushed on 2026-10-09 and its licence field
+  reads NOASSERTION (custom terms). No entry in the DeFiLlama exploit database. In September
+  2023 a quiet change to the multisig that administers the price feeds drew criticism: critics
+  counted a 4-of-9 becoming a 4-of-8, Chainlink described a signer rotation with an unchanged
+  threshold. The two accounts disagree and a report must say so rather than pick one.
+identity:
+  name: Chainlink
+  symbol: LINK
+  chain: ethereum
+  address: '0x514910771af9ca656af840dff83e8264ecf986ca'
+  coingecko_id: chainlink
+  defillama_slug: chainlink
+checks:
+  - tool: get_contract_source
+    input: {address: '0x514910771AF9Ca656af840dff83E8264EcF986CA', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x514910771AF9Ca656af840dff83E8264EcF986CA'}
+  - tool: get_token_metadata
+    input: {address: '0x514910771AF9Ca656af840dff83E8264EcF986CA'}
+  - tool: coingecko_coin
+    input: {id_or_address: chainlink, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: chainlink}
+  - tool: defillama_hacks
+    input: {name_filter: chainlink}
+  - tool: github_repo
+    input: {owner_repo: smartcontractkit/chainlink}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x514910771AF9Ca656af840dff83E8264EcF986CA
+    title: Sourcify verification record of the LINK token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/chainlink
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/chainlink
+    title: DeFiLlama protocol page
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/smartcontractkit/chainlink
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+  - url: https://cointelegraph.com/news/chainlink-garners-criticism-after-quiet-change-multisig
+    title: Cointelegraph, 2023-09-24, criticism after the multisig signer change
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: no-sensitive-functions
+    agent: onchain
+    pattern: '(?i)(no (sensitive|mint|pause|blacklist|owner|upgrade)|none (of|found|detected|present)|not (found|present|detected|exposed)|absent)'
+  - id: supply-one-billion
+    agent: onchain
+    pattern: '(?i)(1[,. ]?000[,. ]?000[,. ]?000|1 billion|1e\+?9|10\^9|\b1B\b)'
+  - id: market-cap-and-rank
+    agent: market
+    pattern: '(?i)(market cap|rank)'
+  - id: tvl-or-tvs
+    agent: market
+    pattern: '(?i)(tvl|total value (locked|secured))'
+  - id: licence
+    agent: docs
+    pattern: '(?i)(licen[cs]e|noassertion)'
+  - id: active-repository
+    agent: docs
+    pattern: '(?i)(commit|push|active|contributor|2026)'
+  - id: multisig-change-2023
+    agent: incidents
+    pattern: '(?i)(multi-?sig|signer)'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: hacked
+    pattern: '(?i)(rug ?pull|exit scam|link (was|has been) (hacked|exploited|drained))'
+expected_contradictions:
+  - id: multisig-threshold
+    pattern: '(?i)(4.of.9|4.of.8|multi-?sig|signer|threshold)'

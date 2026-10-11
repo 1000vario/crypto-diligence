@@ -1,0 +1,245 @@
+{
+ "case": "ens",
+ "query": "Ethereum Name Service",
+ "category": "healthy",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+     "verified": true,
+     "match": "exact_match",
+     "verified_at": "2024-08-08T11:10:35Z",
+     "creation_match": "exact_match",
+     "runtime_match": "exact_match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 18709,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "mint(address,uint256)": true,
+     "owner()": true,
+     "transferOwnership(address)": true,
+     "renounceOwnership()": true
+    },
+    "selectors_in_implementation": null,
+    "owner": "0xfe89cc7abb2c4183683ab71653c4cdc9b02d44b7",
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Ethereum Name Service",
+    "symbol": "ENS",
+    "decimals": 18,
+    "total_supply_raw": "100000000000000000000000000",
+    "total_supply": 100000000.0
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "ethereum-name-service",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "ethereum-name-service",
+    "symbol": "ens",
+    "name": "Ethereum Name Service",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 162,
+    "categories": [
+     "NFT",
+     "Ethereum Ecosystem",
+     "Decentralized Identifier (DID)",
+     "Name Service",
+     "Governance"
+    ],
+    "links": {
+     "homepage": [
+      "https://ens.domains/",
+      "https://app.ens.domains/"
+     ],
+     "whitepaper": "https://docs.ens.domains/learn/protocol/",
+     "github": [],
+     "twitter": "ensdomains",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+      "https://intel.arkm.com/explorer/token/ethereum-name-service",
+      "https://ethplorer.io/address/0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+     ]
+    },
+    "market": {
+     "price_usd": 6.31,
+     "market_cap_usd": 266830408,
+     "fully_diluted_valuation_usd": 631217706,
+     "total_volume_24h_usd": 14470459,
+     "circulating_supply": 42272326.20143092,
+     "total_supply": 100000000.0,
+     "max_supply": 100000000.0,
+     "ath_usd": 83.4,
+     "ath_date": "2021-11-10T18:20:01.000Z",
+     "ath_change_pct": -92.43082,
+     "atl_usd": 3.77,
+     "atl_date": "2026-08-18T02:57:10.000Z",
+     "change_24h_pct": -0.83864,
+     "change_7d_pct": -7.12625,
+     "change_30d_pct": 10.69213,
+     "change_1y_pct": -59.5229
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:09:49.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/ethereum-name-service"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "ens"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "ens",
+    "matches": [
+     {
+      "date": "2024-07-02",
+      "name": "Bittensor",
+      "classification": "Social Engineering",
+      "technique": "Malware",
+      "amount_usd": 8000000,
+      "returned_funds_usd": null,
+      "chains": null,
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "4547"
+     },
+     {
+      "date": "2022-02-20",
+      "name": "OpenSea",
+      "classification": "Social Engineering",
+      "technique": "Phishing",
+      "amount_usd": 2000000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "NFTfi",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     },
+     {
+      "date": "2022-01-25",
+      "name": "OpenSea",
+      "classification": "Protocol Logic",
+      "technique": "Withdrawal Logic Flaw",
+      "amount_usd": 1000000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "NFTfi",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     }
+    ],
+    "matches_total": 3
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "ensdomains/ens-contracts"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/ensdomains/ens-contracts",
+    "html_url": "https://github.com/ensdomains/ens-contracts",
+    "full_name": "ensdomains/ens-contracts",
+    "description": "The core contracts of the ENS protocol ",
+    "created_at": "2021-05-13T11:25:41Z",
+    "pushed_at": "2026-10-08T18:36:23Z",
+    "updated_at": "2026-10-06T20:09:50Z",
+    "stars": 727,
+    "forks": 584,
+    "open_issues": 57,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "MIT",
+    "language": "TypeScript",
+    "default_branch": "staging",
+    "topics": [
+     "ethereum",
+     "solidity"
+    ],
+    "latest_commit": {
+     "sha": "121dc232df06",
+     "date": "2026-09-11T17:46:09Z",
+     "message": "Include `HttpError` by default in `CCIPBatcher._isSafeBatchGatewayError()` (#575)"
+    },
+    "contributors": 36,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

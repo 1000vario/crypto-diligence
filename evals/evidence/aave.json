@@ -1,0 +1,353 @@
+{
+ "case": "aave",
+ "query": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+ "category": "healthy",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+     "verified": true,
+     "match": "exact_match",
+     "verified_at": "2024-08-08T11:01:15Z",
+     "creation_match": "exact_match",
+     "runtime_match": "exact_match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 2491,
+    "proxy": {
+     "detected": true,
+     "pattern": "eip1967",
+     "implementation": "0x5d4aa78b08bc7c530e21bf7447988b1be7991322",
+     "admin": "0x86c3ffee349a7cff7ca88c449717b1b133bfb517"
+    },
+    "selectors_in_proxy_or_contract": {
+     "upgradeTo(address)": true,
+     "upgradeToAndCall(address,bytes)": true
+    },
+    "selectors_in_implementation": {},
+    "owner": null,
+    "paused": null,
+    "notes": [
+     "Upgradeable proxy: the implementation can be replaced by whoever controls the admin or owner, so today's code is not a guarantee about tomorrow's.",
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ],
+    "implementation_code_size_bytes": 8655
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Aave Token",
+    "symbol": "AAVE",
+    "decimals": 18,
+    "total_supply_raw": "16000000000000000000000000",
+    "total_supply": 16000000.0
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+    "lookup": "contract"
+   },
+   "ok": true,
+   "output": {
+    "id": "aave",
+    "symbol": "aave",
+    "name": "Aave",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+     "solana": "AavE1kKKnesPw4MuRJmJ9jZs9QzEE8CPxQ3ViczUDfc1",
+     "base": "0x63706e401c06ac8513145b7687a14804d17f814b",
+     "hydration": "asset_registry%2F1000624",
+     "harmony-shard-0": "0xcf323aad9e522b93f11c352caa519ad0e14eb40f",
+     "huobi-token": "0x202b4936fe1a82a4965220860ae46d7d3939bb25",
+     "fantom": "0x6a07a792ab2965c72a5b8088d3a069a7ac3a993b",
+     "near-protocol": "7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9.factory.bridge.near",
+     "energi": "0xa7f2f790355e0c32cab03f92f6eb7f488e6f049a",
+     "sora": "0x0091bd8d8295b25cab5a7b8b0e44498e678cfc15d872ede3215f7d4c7635ba36",
+     "polygon-pos": "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+     "binance-smart-chain": "0xfb6115445bff7b52feb98650c87f44907e58f802",
+     "arbitrum-one": "0xba5ddd1f9d7f570dc94a51479a000e3bce967196",
+     "optimistic-ethereum": "0x76fb31fb4af56892a25e32cfc43de717950c9278",
+     "avalanche": "0x63a72806098bd3d9520cc43356dd78afe5d386d9"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 44,
+    "categories": [
+     "Decentralized Finance (DeFi)",
+     "Yield Farming",
+     "BNB Chain Ecosystem",
+     "Lending/Borrowing Protocols",
+     "Solana Ecosystem",
+     "Avalanche Ecosystem",
+     "Polygon Ecosystem",
+     "Near Protocol Ecosystem"
+    ],
+    "links": {
+     "homepage": [
+      "https://aave.com/"
+     ],
+     "whitepaper": "https://github.com/aave/aave-protocol/blob/master/docs/Aave_Protocol_Whitepaper_v1_0.pdf",
+     "github": [
+      "https://github.com/aave/aave-protocol"
+     ],
+     "twitter": "aave",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+      "https://ethplorer.io/address/0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+      "https://polygonscan.com/token/0xd6df932a45c0f255f85145f286ea0b292b21c90b"
+     ]
+    },
+    "market": {
+     "price_usd": 169.55,
+     "market_cap_usd": 2618039633,
+     "fully_diluted_valuation_usd": 2713749185,
+     "total_volume_24h_usd": 199047338,
+     "circulating_supply": 15435705.835933913,
+     "total_supply": 16000000.0,
+     "max_supply": 16000000.0,
+     "ath_usd": 661.69,
+     "ath_date": "2021-05-18T13:19:59.000Z",
+     "ath_change_pct": -74.37606,
+     "atl_usd": 26.02,
+     "atl_date": "2020-11-05T01:20:11.000Z",
+     "change_24h_pct": -0.58937,
+     "change_7d_pct": -5.7727,
+     "change_30d_pct": 37.07349,
+     "change_1y_pct": -28.64334
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:06:53.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/ethereum/contract/0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "aave"
+   },
+   "ok": true,
+   "output": {
+    "name": "Aave",
+    "slug": "aave",
+    "is_parent": true,
+    "other_protocols": [
+     "Aave",
+     "Aave V3",
+     "Aave V4",
+     "Aave Horizon RWA",
+     "Aave V2",
+     "Aave V1",
+     "Aave Aptos",
+     "Aave Arc"
+    ],
+    "symbol": "AAVE",
+    "category": null,
+    "chains": [
+     "Ethereum",
+     "borrowed",
+     "Base",
+     "Arbitrum",
+     "Plasma",
+     "staking",
+     "Avalanche",
+     "Monad"
+    ],
+    "url": "https://aave.com",
+    "twitter": "aave",
+    "github": [
+     "aave",
+     "aave-dao"
+    ],
+    "gecko_id": "aave",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": null,
+    "audit_links": null,
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "Aave is an Open Source and Non-Custodial protocol to earn interest on deposits and borrow assets",
+    "tvl_current_usd": 18700863568,
+    "tvl_date": "2026-10-11T17:53:23+00:00",
+    "tvl_90d_ago_usd": 13504297185,
+    "tvl_by_chain_usd": {
+     "Ethereum": 15577770797,
+     "borrowed": 12671432075,
+     "Base": 547443129,
+     "Arbitrum": 515107757,
+     "Plasma": 451172577,
+     "staking": 422290100,
+     "Avalanche": 393187972,
+     "Monad": 349140297
+    },
+    "hallmarks": [
+     {
+      "date": "2021-04-26T00:00:00+00:00",
+      "text": "Start Ethereum V2 Rewards"
+     },
+     {
+      "date": "2021-10-04T00:00:00+00:00",
+      "text": "Start AVAX V2 Rewards"
+     },
+     {
+      "date": "2021-10-27T00:00:00+00:00",
+      "text": "Potential xSUSHI attack found"
+     },
+     {
+      "date": "2022-04-20T00:00:00+00:00",
+      "text": "Start AVAX Rewards"
+     },
+     {
+      "date": "2022-05-07T00:00:00+00:00",
+      "text": "UST depeg"
+     },
+     {
+      "date": "2022-06-10T00:00:00+00:00",
+      "text": "stETH depeg"
+     },
+     {
+      "date": "2022-08-04T00:00:00+00:00",
+      "text": "Start OP Rewards"
+     },
+     {
+      "date": "2026-04-18T00:00:00+00:00",
+      "text": "KelpDAO hack"
+     },
+     {
+      "date": "2026-04-18T00:00:00+00:00",
+      "text": "KelpDAO hack"
+     }
+    ],
+    "source_url": "https://api.llama.fi/protocol/aave"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "aave"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "aave",
+    "matches": [
+     {
+      "date": "2026-03-12",
+      "name": "Aave V3",
+      "classification": "Oracle Manipulation",
+      "technique": "Oracle Misconfiguration",
+      "amount_usd": 862000,
+      "returned_funds_usd": 862000,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "1599"
+     },
+     {
+      "date": "2024-08-28",
+      "name": "Aave",
+      "classification": "Access Control",
+      "technique": "Arbitrary External Call",
+      "amount_usd": 56000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "1"
+     }
+    ],
+    "matches_total": 2
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "aave/aave-v3-core"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/aave/aave-v3-core",
+    "html_url": "https://github.com/aave/aave-v3-core",
+    "full_name": "aave/aave-v3-core",
+    "description": "This repository contains the core smart contracts of the Aave V3 protocol.",
+    "created_at": "2021-07-27T08:54:40Z",
+    "pushed_at": "2024-09-03T13:56:47Z",
+    "updated_at": "2026-10-07T12:51:46Z",
+    "stars": 1118,
+    "forks": 743,
+    "open_issues": 49,
+    "archived": true,
+    "disabled": false,
+    "fork": false,
+    "license": "NOASSERTION",
+    "language": "TypeScript",
+    "default_branch": "master",
+    "topics": [
+     "blockchain",
+     "defi",
+     "ethereum",
+     "solidity"
+    ],
+    "latest_commit": {
+     "sha": "782f51917056",
+     "date": "2024-09-03T13:56:19Z",
+     "message": "chore: deprecate for 3.1 origin"
+    },
+    "contributors": 26,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

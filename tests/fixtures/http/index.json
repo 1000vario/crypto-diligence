@@ -1,0 +1,174 @@
+{
+  "GET https://api.coingecko.com/api/v3/coins/ethereum/contract/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984?localization=false&tickers=false&community_data=false&sparkline=false": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "7384648cbbfbcaa0.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/coins/ethereum/contract/0xd9fcd98c322942075a5c3860693e9f4f03aae07b?localization=false&tickers=false&community_data=false&sparkline=false": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "b7af93124f91f0f6.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/coins/euler?localization=false&tickers=false&community_data=false&sparkline=false": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "5651e22e99064d63.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/coins/uniswap/market_chart?vs_currency=usd&days=90": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "125b567c92910b72.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/coins/uniswap?localization=false&tickers=false&community_data=false&sparkline=false": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "7d1185f3ade65741.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/search?query=Uniswap": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "7d0c33ca05c3f9c1.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/search?query=euler": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "dca1156bdf9bc24d.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.coingecko.com/api/v3/search?query=uniswap": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "ebccd1fe0b70d281.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.dexscreener.com/latest/dex/tokens/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "8abe16d59a991728.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.ethplorer.io/getTokenInfo/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "391c4366e53c0687.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.ethplorer.io/getTopTokenHolders/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984?limit=10": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "f29b48bd8e455ba1.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.github.com/repos/Uniswap/v3-core": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "f814430cc9ff990a.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.github.com/repos/Uniswap/v3-core/commits?per_page=1": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "1860335764861603.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.github.com/repos/Uniswap/v3-core/contributors?per_page=100&anon=true": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "05d0bf08dd0961b1.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://api.llama.fi/hacks": {
+    "content_type": "application/json",
+    "file": "9d47d17b892db25a.json",
+    "recorded": "2026-10-11",
+    "status": 200,
+    "trimmed": "25 of 1299 entries kept"
+  },
+  "GET https://api.llama.fi/protocol/euler": {
+    "content_type": "application/json",
+    "file": "3011b30effc76ef5.json",
+    "recorded": "2026-10-11",
+    "status": 200,
+    "trimmed": "last 120 TVL points kept, chainTvls, tokens, tokensInUsd, raises, treasury dropped; 10429414 bytes before"
+  },
+  "GET https://api.llama.fi/protocol/uniswap": {
+    "content_type": "application/json",
+    "file": "e385e1c156d62958.json",
+    "recorded": "2026-10-11",
+    "status": 200,
+    "trimmed": "last 120 TVL points kept, chainTvls, tokens, tokensInUsd, raises, treasury dropped; 1930734 bytes before"
+  },
+  "GET https://api.llama.fi/protocols": {
+    "content_type": "application/json",
+    "file": "60d1714420496ead.json",
+    "recorded": "2026-10-11",
+    "status": 200,
+    "trimmed": "15 of 8694 entries kept"
+  },
+  "GET https://coins.llama.fi/prices/current/ethereum:0x1f9840a85d5af5bf1d1762f925bdaddc4201f984": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "1aa0898c7dce74b0.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://sourcify.dev/server/v2/contract/1/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "34cb6382dba2714f.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "GET https://sourcify.dev/server/v2/contract/1/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+    "content_type": "application/json; charset=utf-8",
+    "file": "95241c49b6240b6f.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com 2278d40a45d6b1e4": {
+    "content_type": "application/json",
+    "file": "a52cf269e21520e9.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com 34cb40597ffde9c1": {
+    "content_type": "application/json",
+    "file": "b4624bac3824b6c8.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com 3ea4032599f44284": {
+    "content_type": "application/json",
+    "file": "1edb1e9472b58e00.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com 6f6c3439b5cca876": {
+    "content_type": "application/json",
+    "file": "bf29e4dc09e82561.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com 7d1002fdc57d38db": {
+    "content_type": "application/json",
+    "file": "aac1afb6551a4f58.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com 841114e314c6d547": {
+    "content_type": "application/json",
+    "file": "5692f5f8956fddb2.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  },
+  "POST https://ethereum-rpc.publicnode.com a874f1e48d5503dc": {
+    "content_type": "application/json",
+    "file": "4d8f4e28168e9f9f.json",
+    "recorded": "2026-10-11",
+    "status": 200
+  }
+}

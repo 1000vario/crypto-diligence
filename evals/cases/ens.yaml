@@ -1,0 +1,78 @@
+id: ens
+query: Ethereum Name Service
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Naming system on Ethereum. The ENS governance token at
+  0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72 has its source an exact match on Sourcify, is
+  not a proxy, exposes a mint selector, its owner() is
+  0xfe89cc7abb2c4183683ab71653c4cdc9b02d44b7 (the DAO timelock) and its total supply is
+  100,000,000. CoinGecko rank 162, market cap about 267 million USD on 2026-10-11. The
+  repository ensdomains/ens-contracts is under the MIT licence and was pushed on 2026-09-11.
+  The DeFiLlama exploit database has no entry about ENS; the only rows a name search returns
+  (Bittensor, OpenSea) are unrelated projects. No depeg, no exploit, no regulator action
+  recorded.
+identity:
+  name: Ethereum Name Service
+  symbol: ENS
+  chain: ethereum
+  address: '0xc18360217d8f7ab5e7c516566761ea12ce7f9d72'
+  coingecko_id: ethereum-name-service
+  defillama_slug: null
+checks:
+  - tool: get_contract_source
+    input: {address: '0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72'}
+  - tool: get_token_metadata
+    input: {address: '0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72'}
+  - tool: coingecko_coin
+    input: {id_or_address: ethereum-name-service, lookup: id}
+  - tool: defillama_hacks
+    input: {name_filter: ens}
+  - tool: github_repo
+    input: {owner_repo: ensdomains/ens-contracts}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72
+    title: Sourcify verification record of the ENS token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/ethereum-name-service
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (no ENS entry)
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/ensdomains/ens-contracts
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-function
+    agent: onchain
+    pattern: '(?i)mint'
+  - id: owner-set
+    agent: onchain
+    pattern: '(?i)(owner|0xfe89cc7abb2c4183683ab71653c4cdc9b02d44b7|timelock|dao)'
+  - id: supply-100-million
+    agent: onchain
+    pattern: '(?i)(100[,. ]?000[,. ]?000|100 million|\b100M\b)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: mit-licence
+    agent: docs
+    pattern: '(?i)(MIT|licen[cs]e)'
+  - id: active-repository
+    agent: docs
+    pattern: '(?i)(commit|push|active|contributor|2026)'
+  - id: no-incident
+    agent: incidents
+    pattern: '(?i)(no (known |recorded |reported |major |public )?(exploit|hack|incident)|none (found|known|recorded|listed)|not (found|listed|recorded)|unrelated)'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: hacked
+    pattern: '(?i)(ENS (was|has been) (hacked|exploited|drained)|rug ?pull|depeg)'
+expected_contradictions: []

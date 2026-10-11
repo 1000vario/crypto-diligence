@@ -1,0 +1,89 @@
+id: lido
+query: Lido DAO
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Liquid staking protocol. The LDO governance token at
+  0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32 has its source verified on Sourcify, is not a
+  proxy, exposes no mint, pause or blacklist selector and has a total supply of 1,000,000,000.
+  DeFiLlama TVL about 24.6 billion USD, CoinGecko rank 131 and market cap about 368 million USD
+  on 2026-10-11. The repository lidofinance/lido-dao is under GPL-3.0 and was pushed on
+  2026-10-07; audits are collected in lidofinance/audits. No entry about Lido in the DeFiLlama
+  exploit database. Dated incident: on 2023-10-11 twenty validators run by the node operator
+  Launchnodes were slashed, about 20 ETH of penalties; the operator covered 25.663 ETH and the
+  post-mortem was published on blog.lido.fi.
+identity:
+  name: Lido DAO
+  symbol: LDO
+  chain: ethereum
+  address: '0x5a98fcbea516cf06857215779fd812ca3bef1b32'
+  coingecko_id: lido-dao
+  defillama_slug: lido
+checks:
+  - tool: get_contract_source
+    input: {address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32'}
+  - tool: get_token_metadata
+    input: {address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32'}
+  - tool: coingecko_coin
+    input: {id_or_address: lido-dao, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: lido}
+  - tool: defillama_hacks
+    input: {name_filter: lido}
+  - tool: github_repo
+    input: {owner_repo: lidofinance/lido-dao}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32
+    title: Sourcify verification record of the LDO token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/lido-dao
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/lido
+    title: DeFiLlama protocol page, TVL, audits and hallmarks
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/lidofinance/lido-dao
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+  - url: https://blog.lido.fi/post-mortem-launchnodes-slashing-incident/
+    title: Lido post-mortem of the Launchnodes slashing incident of 2023-10-11
+    accessed: '2026-10-11'
+  - url: https://research.lido.fi/t/slashing-incident-involving-launchnodes-validators-oct-11-2023/5631
+    title: Lido research forum thread on the slashing incident
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: supply-one-billion
+    agent: onchain
+    pattern: '(?i)(1[,. ]?000[,. ]?000[,. ]?000|1 billion|1e\+?9|10\^9|\b1B\b)'
+  - id: no-sensitive-functions
+    agent: onchain
+    pattern: '(?i)(no (sensitive|mint|pause|blacklist|owner|upgrade)|none (of|found|detected|present)|not (found|present|detected|exposed)|absent)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap)'
+  - id: gpl-licence
+    agent: docs
+    pattern: '(?i)(GPL|licen[cs]e)'
+  - id: audits
+    agent: docs
+    pattern: '(?i)audit'
+  - id: slashing-2023
+    agent: incidents
+    pattern: '(?i)slash'
+  - id: launchnodes
+    agent: incidents
+    pattern: '(?i)(launchnodes|validator)'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: rug-or-abandoned
+    pattern: '(?i)(rug ?pull|exit scam|abandoned|archived)'
+expected_contradictions: []

@@ -1,0 +1,90 @@
+id: aave
+query: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Lending protocol, queried by the AAVE token address. The token contract is an EIP-1967 proxy
+  (implementation 0x5d4aa78b08bc7c530e21bf7447988b1be7991322, admin
+  0x86c3ffee349a7cff7ca88c449717b1b133bfb517) with upgradeTo and upgradeToAndCall, source an
+  exact match on Sourcify, total supply 16,000,000. CoinGecko rank 44, market cap about 2.6
+  billion USD, DeFiLlama TVL about 18.6 billion USD on 2026-10-11. The repository
+  aave/aave-v3-core is archived (last push 2024-09-03); development continued in other
+  repositories of the aave organisation. Dated events: about 1.6 million USD of bad debt after
+  a CRV short was liquidated in November 2022 (proposal to cover it on 2022-11-23); DeFiLlama
+  lists a 56,000 USD arbitrary external call on 2024-08-28 and an 862,000 USD oracle
+  misconfiguration on 2026-03-12, funds returned.
+identity:
+  name: Aave
+  symbol: AAVE
+  chain: ethereum
+  address: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9'
+  coingecko_id: aave
+  defillama_slug: aave
+checks:
+  - tool: get_contract_source
+    input: {address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'}
+  - tool: get_token_metadata
+    input: {address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'}
+  - tool: coingecko_coin
+    input: {id_or_address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9', lookup: contract}
+  - tool: defillama_protocol
+    input: {slug: aave}
+  - tool: defillama_hacks
+    input: {name_filter: aave}
+  - tool: github_repo
+    input: {owner_repo: aave/aave-v3-core}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9
+    title: Sourcify verification record of the AAVE token proxy
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/ethereum/contract/0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9
+    title: CoinGecko coin page by contract (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/aave
+    title: DeFiLlama protocol page, TVL and hallmarks
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/aave/aave-v3-core
+    title: GitHub repository metadata (archived)
+    accessed: '2026-10-11'
+  - url: https://www.theblock.co/post/189606
+    title: The Block, 2022-11-23, proposal to cover 1.6 million USD of bad debt on Aave
+    accessed: '2026-10-11'
+expected_facts:
+  - id: proxy
+    agent: onchain
+    pattern: '(?i)(proxy|eip-?1967|implementation)'
+  - id: upgradeable
+    agent: onchain
+    pattern: '(?i)upgrade'
+  - id: supply-16-million
+    agent: onchain
+    pattern: '(?i)(16[,. ]?000[,. ]?000|16 million|\b16M\b)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap)'
+  - id: audits
+    agent: docs
+    pattern: '(?i)audit'
+  - id: archived-or-moved-repo
+    agent: docs
+    pattern: '(?i)(archiv|aave-v3-origin|v3-origin|moved)'
+  - id: bad-debt-2022
+    agent: incidents
+    pattern: '(?i)(bad debt|CRV|november 2022|2022-11)'
+  - id: oracle-2026
+    agent: incidents
+    pattern: '(?i)oracle'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: not-a-proxy
+    pattern: '(?i)(no proxy|not (a )?proxy|not upgradeable|immutable token)'
+expected_contradictions: []

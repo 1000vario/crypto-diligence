@@ -1,0 +1,289 @@
+{
+ "case": "lido",
+ "query": "Lido DAO",
+ "category": "healthy",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T12:30:22Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 7440,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {},
+    "selectors_in_implementation": null,
+    "owner": null,
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Lido DAO Token",
+    "symbol": "LDO",
+    "decimals": 18,
+    "total_supply_raw": "1000000000000000000000000000",
+    "total_supply": 1000000000.0
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "lido-dao",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "lido-dao",
+    "symbol": "ldo",
+    "name": "Lido DAO",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+     "polygon-pos": "0xc3c7d422809852031b44ab29eec9f1eff2a58756",
+     "arbitrum-one": "0x13ad51ed4f1b7e9dc168d8a00cb3f4ddd85efa60",
+     "optimistic-ethereum": "0xfdb794692724153d1488ccdbe0c56c252596735f"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 131,
+    "categories": [
+     "Infrastructure",
+     "Decentralized Finance (DeFi)",
+     "Polygon Ecosystem",
+     "Arbitrum Ecosystem",
+     "Ethereum Ecosystem",
+     "Optimism Ecosystem",
+     "Liquid Staking Governance Tokens",
+     "eGirl Capital Portfolio"
+    ],
+    "links": {
+     "homepage": [
+      "https://stake.lido.fi/"
+     ],
+     "whitepaper": "https://lido.fi/static/Lido:Ethereum-Liquid-Staking.pdf",
+     "github": [
+      "https://github.com/lidofinance/lido-dao"
+     ],
+     "twitter": "lidofinance",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+      "https://intel.arkm.com/explorer/token/lido-dao",
+      "https://ethplorer.io/address/0x5a98fcbea516cf06857215779fd812ca3bef1b32"
+     ]
+    },
+    "market": {
+     "price_usd": 0.439861,
+     "market_cap_usd": 364921814,
+     "fully_diluted_valuation_usd": 439893918,
+     "total_volume_24h_usd": 53985655,
+     "circulating_supply": 829567764.2043006,
+     "total_supply": 1000000000.0,
+     "max_supply": 1000000000.0,
+     "ath_usd": 7.3,
+     "ath_date": "2021-08-20T00:35:20.000Z",
+     "ath_change_pct": -93.97688,
+     "atl_usd": 0.235028,
+     "atl_date": "2026-06-25T13:59:50.000Z",
+     "change_24h_pct": 1.94635,
+     "change_7d_pct": -3.63286,
+     "change_30d_pct": 18.92257,
+     "change_1y_pct": -47.67072
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:11:49.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/lido-dao"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "lido"
+   },
+   "ok": true,
+   "output": {
+    "name": "Lido",
+    "slug": "182",
+    "is_parent": false,
+    "other_protocols": [],
+    "symbol": "LDO",
+    "category": "Liquid Staking",
+    "chains": [
+     "Terra",
+     "Moonriver",
+     "Moonbeam",
+     "Ethereum",
+     "Solana"
+    ],
+    "url": "https://lido.fi/",
+    "twitter": "LidoFinance",
+    "github": [
+     "lidofinance"
+    ],
+    "gecko_id": "lido-dao",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": "2",
+    "audit_links": [
+     "https://github.com/lidofinance/audits"
+    ],
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "Liquid staking for Ethereum and Polygon. Daily staking rewards, no lock ups.",
+    "tvl_current_usd": 24714478183,
+    "tvl_date": "2026-10-11T17:29:59+00:00",
+    "tvl_90d_ago_usd": 16290959063,
+    "tvl_by_chain_usd": {
+     "Ethereum": 24708691769.47335,
+     "Solana": 5786414.45478,
+     "Terra": 0,
+     "Moonriver": 0,
+     "Moonbeam": 0
+    },
+    "hallmarks": [
+     {
+      "date": "2021-01-13T00:00:00+00:00",
+      "text": "Start of incentives for curve pool"
+     },
+     {
+      "date": "2022-05-07T00:00:00+00:00",
+      "text": "UST depeg"
+     },
+     {
+      "date": "2022-06-10T00:00:00+00:00",
+      "text": "stETH depeg"
+     },
+     {
+      "date": "2022-11-08T00:00:00+00:00",
+      "text": "FTX collapse"
+     },
+     {
+      "date": "2023-05-15T00:00:00+00:00",
+      "text": "ETH Withdrawal Activation"
+     }
+    ],
+    "source_url": "https://api.llama.fi/protocol/lido"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "lido"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "lido",
+    "matches": [
+     {
+      "date": "2026-07-23",
+      "name": "Solido Cash",
+      "classification": "Oracle Manipulation",
+      "technique": "Oracle Misconfiguration",
+      "amount_usd": 900000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Supra"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "6058"
+     }
+    ],
+    "matches_total": 1
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "lidofinance/lido-dao"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/lidofinance/lido-dao",
+    "html_url": "https://github.com/lidofinance/core",
+    "full_name": "lidofinance/core",
+    "description": "Lido DAO smart contracts",
+    "created_at": "2020-07-16T13:19:00Z",
+    "pushed_at": "2026-10-11T11:48:59Z",
+    "updated_at": "2026-10-07T13:10:59Z",
+    "stars": 498,
+    "forks": 285,
+    "open_issues": 52,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "GPL-3.0",
+    "language": "TypeScript",
+    "default_branch": "master",
+    "topics": [
+     "protocol"
+    ],
+    "latest_commit": {
+     "sha": "1440c830eb1d",
+     "date": "2026-10-07T13:10:53Z",
+     "message": "Merge pull request #1992 from lidofinance/release/4.1.0\n\nrelease: 4.1.0"
+    },
+    "contributors": 66,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

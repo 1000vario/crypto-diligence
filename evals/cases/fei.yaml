@@ -1,0 +1,95 @@
+id: fei
+query: Fei USD
+category: abandoned
+truth_date: '2026-10-11'
+summary: >-
+  Former algorithmic stablecoin of the Tribe DAO. The FEI token at
+  0x956F47F50A910163D8BF957Cf5846D573E7f87CA has its source verified on Sourcify, exposes
+  mint, burn, burnFrom, pause and unpause selectors, paused() returns false, and the
+  remaining supply is about 4.0 million. After the Rari Fuse reentrancy exploit of
+  2022-04-30 (about 80 million USD, DeFiLlama hallmark "Exploit $80M FEI") the DAO voted
+  TIP-121 in August 2022 to wind down, making FEI redeemable one for one for DAI, and Tribe
+  DAO was dissolved. DeFiLlama now shows a TVL of about 7 USD; CoinGecko rank 1919, market
+  cap about 3.7 million USD, price about 1.00 USD on 2026-10-11. The repository
+  fei-protocol/fei-protocol-core (GPL-3.0) was last pushed on 2022-10-14. The stablecoin label
+  survives in listings while the protocol no longer operates: a report should say both.
+identity:
+  name: Fei USD
+  symbol: FEI
+  chain: ethereum
+  address: '0x956f47f50a910163d8bf957cf5846d573e7f87ca'
+  coingecko_id: fei-usd
+  defillama_slug: fei-protocol
+checks:
+  - tool: get_contract_source
+    input: {address: '0x956F47F50A910163D8BF957Cf5846D573E7f87CA', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x956F47F50A910163D8BF957Cf5846D573E7f87CA'}
+  - tool: get_token_metadata
+    input: {address: '0x956F47F50A910163D8BF957Cf5846D573E7f87CA'}
+  - tool: coingecko_coin
+    input: {id_or_address: fei-usd, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: fei-protocol}
+  - tool: defillama_hacks
+    input: {name_filter: fei}
+  - tool: github_repo
+    input: {owner_repo: fei-protocol/fei-protocol-core}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x956F47F50A910163D8BF957Cf5846D573E7f87CA
+    title: Sourcify verification record of the FEI token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/fei-usd
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/fei-protocol
+    title: DeFiLlama protocol page, TVL and hallmark of the 2022-04-30 exploit
+    accessed: '2026-10-11'
+  - url: https://rekt.news/fei-rari-rekt/
+    title: rekt.news on the Fei and Rari Fuse exploit of 2022-04-30
+    accessed: '2026-10-11'
+  - url: https://thedefiant.io/news/defi/fei-shutdown-uproar
+    title: The Defiant on the Tribe DAO wind-down vote (TIP-121, August 2022)
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/fei-protocol/fei-protocol-core
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-burn-pause
+    agent: onchain
+    pattern: '(?i)(mint|burn|pause)'
+  - id: not-paused
+    agent: onchain
+    pattern: '(?i)(not paused|paused.{0,8}(false|no)|unpaused|paused\(\) (is |returns )?false)'
+  - id: supply-4-million
+    agent: onchain
+    pattern: '(?i)(4[,. ]?0\d\d[,. ]?\d\d\d|4(\.0)? ?million|\b4M\b)'
+  - id: tvl-near-zero
+    agent: market
+    pattern: '(?i)(tvl|total value locked|near(ly)? zero|negligible|\$ ?7\b)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: stale-repository
+    agent: docs
+    pattern: '(?i)(2022|inactive|no (longer|recent)|stale|last (commit|push|update)|dormant)'
+  - id: gpl-licence
+    agent: docs
+    pattern: '(?i)(GPL|licen[cs]e)'
+  - id: fuse-exploit-2022
+    agent: incidents
+    pattern: '(?i)(fuse|rari|april 2022|2022-04|80 ?million|reentranc)'
+  - id: wind-down
+    agent: incidents
+    pattern: '(?i)(wind|shut|sunset|TIP-?121|dissol|redeem|wound down)'
+forbidden_facts:
+  - id: active-development
+    pattern: '(?i)(actively (developed|maintained)|active development|under active|growing tvl|tvl (is )?(growing|rising))'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions:
+  - id: stablecoin-label-versus-wind-down
+    pattern: '(?i)(stablecoin|peg|wind|shut|sunset|active|abandon|tvl|dissol)'

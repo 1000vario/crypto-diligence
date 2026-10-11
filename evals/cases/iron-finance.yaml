@@ -1,0 +1,84 @@
+id: iron-finance
+query: IRON Titanium
+category: abandoned
+truth_date: '2026-10-11'
+summary: >-
+  Partially collateralised stablecoin project on Polygon whose share token TITAN collapsed in
+  a bank run on 2021-06-16: TITAN went from about 64 USD (CoinGecko all-time high on
+  2021-06-15) to near zero in about sixteen hours and IRON traded well under its dollar peg;
+  the team stated it was not a rug pull. The TITAN contract lives on Polygon at
+  0xaaa5b9e6c589642f98a1cda99b9d024b8407285a, so the Ethereum-only onchain tools cannot read
+  it and must say so. CoinGecko lists the token as IRON Titanium, rank about 6580, price near
+  1.6e-9 USD on 2026-10-11. DeFiLlama keeps the protocol page iron-finance (Avalanche,
+  Fantom, Polygon) with about 316,000 USD of TVL and a 2022-05-11 reentrancy exploit hallmark;
+  its exploit database also lists a 170,000 USD entry dated 2021-03-16. The repository
+  IronFinance/iron-core-v2 has no licence and was last pushed 2021-07-13. Symbol-only queries
+  are ambiguous here: a search for TITAN returns other tokens first.
+identity:
+  name: IRON Titanium
+  symbol: TITAN
+  chain: polygon
+  address: null
+  coingecko_id: iron-titanium-token
+  defillama_slug: iron-finance
+checks:
+  - tool: coingecko_search
+    input: {query: IRON Titanium}
+  - tool: coingecko_coin
+    input: {id_or_address: iron-titanium-token, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: iron-finance}
+  - tool: defillama_hacks
+    input: {name_filter: iron}
+  - tool: github_repo
+    input: {owner_repo: IronFinance/iron-core-v2}
+sources:
+  - url: https://api.coingecko.com/api/v3/coins/iron-titanium-token
+    title: CoinGecko coin page (API), all-time high of 2021-06-15 and current price
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/iron-finance
+    title: DeFiLlama protocol page, chains, TVL and hallmark
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://rekt.news/iron-finance-rekt/
+    title: rekt.news on the Iron Finance bank run of 2021-06-16
+    accessed: '2026-10-11'
+  - url: https://finematics.com/bank-run-in-defi-iron-finance-explained/
+    title: Finematics, the Iron Finance bank run explained
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/IronFinance/iron-core-v2
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: not-on-ethereum
+    agent: onchain
+    pattern: '(?i)(polygon|no ethereum|not (on|an) ethereum|not supported|ethereum[- ]only|cannot (analy|read|verify)|outside (the )?scope|other chain|no (ethereum )?(contract|address))'
+  - id: ath-and-collapse
+    agent: market
+    pattern: '(?i)(ath|all-time high|\b64\b|1\.6e-?0?9|0\.0000000|99\.9)'
+  - id: rank-or-tvl
+    agent: market
+    pattern: '(?i)(rank|market cap|tvl|total value locked)'
+  - id: stale-repository
+    agent: docs
+    pattern: '(?i)(2021|no licen[cs]e|licen[cs]e|inactive|stale|last (commit|push|update)|dormant)'
+  - id: documentation-or-repo
+    agent: docs
+    pattern: '(?i)(github|repositor|docs\.iron\.finance|documentation|iron\.finance)'
+  - id: bank-run-june-2021
+    agent: incidents
+    pattern: '(?i)(june 2021|2021-06|bank run|collapse)'
+  - id: titan-to-zero
+    agent: incidents
+    pattern: '(?i)(zero|worthless|crash|collaps|bank run|99)'
+  - id: reentrancy-2022
+    agent: incidents
+    pattern: '(?i)(reentranc|re-entranc|2022-05|may 2022|2021-03|march 2021)'
+forbidden_facts:
+  - id: active-development
+    pattern: '(?i)(actively (developed|maintained)|active development|under active|tvl (is )?(growing|rising))'
+  - id: ethereum-contract-verified
+    pattern: '(?i)(ethereum (mainnet )?contract (is )?(verified|at 0x)|verified on sourcify)'
+expected_contradictions: []

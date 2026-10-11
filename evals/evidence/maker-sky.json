@@ -1,0 +1,362 @@
+{
+ "case": "maker-sky",
+ "query": "Maker",
+ "category": "healthy",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T15:43:16Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 3379,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "mint(address,uint256)": true,
+     "mint(uint256)": true,
+     "burn(uint256)": true,
+     "owner()": true,
+     "setOwner(address)": true
+    },
+    "selectors_in_implementation": null,
+    "owner": "0x0000000000000000000000000000000000000000",
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Maker",
+    "symbol": "MKR",
+    "decimals": 18,
+    "total_supply_raw": "83516749188772040354319",
+    "total_supply": 83516.74918877204
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "maker",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "maker",
+    "symbol": "mkr",
+    "name": "Maker",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+     "energi": "0x050317d93f29d1ba5ff3eac3b8157fd4e345588d",
+     "sora": "0x00ec184ef0b4bd955db05eea5a8489ae72888ab6e63682a15beca1cd39344c8f",
+     "polygon-pos": "0x6f7c932e7684666c9fd1d44527765433e01ff61d",
+     "avalanche": "0x88128fd4b259552a9a1d457f435a6527aab72d42"
+    },
+    "genesis_date": "2017-11-25",
+    "market_cap_rank": null,
+    "categories": [
+     "Decentralized Finance (DeFi)",
+     "Avalanche Ecosystem",
+     "Polygon Ecosystem",
+     "Ethereum Ecosystem",
+     "Real World Assets (RWA)",
+     "Paradigm Portfolio",
+     "Index Coop Defi Index",
+     "Stablecoin Issuer"
+    ],
+    "links": {
+     "homepage": [
+      "https://makerdao.com/",
+      "https://blog.makerdao.com/"
+     ],
+     "whitepaper": null,
+     "github": [
+      "https://github.com/makerdao/multicall",
+      "https://github.com/makerdao/dai.js"
+     ],
+     "twitter": "SkyEcosystem",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "https://intel.arkm.com/explorer/token/maker",
+      "https://ethplorer.io/address/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"
+     ]
+    },
+    "market": {
+     "price_usd": 1839.28,
+     "market_cap_usd": 0.0,
+     "fully_diluted_valuation_usd": 153610732,
+     "total_volume_24h_usd": 108731,
+     "circulating_supply": 0.0,
+     "total_supply": 83516.74918877204,
+     "max_supply": 1005577.0,
+     "ath_usd": 6292.31,
+     "ath_date": "2021-05-03T13:54:29.000Z",
+     "ath_change_pct": -70.76937,
+     "atl_usd": 168.36,
+     "atl_date": "2020-03-16T12:52:36.000Z",
+     "change_24h_pct": 3.57451,
+     "change_7d_pct": -15.46179,
+     "change_30d_pct": 27.37456,
+     "change_1y_pct": 31.80281
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:11:49.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/maker"
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "sky",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "sky",
+    "symbol": "sky",
+    "name": "Sky",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0x56072c95faa701256059aa122697b133aded9279",
+     "hydration": "asset_registry%2F1000795"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 54,
+    "categories": [
+     "Decentralized Finance (DeFi)",
+     "Ethereum Ecosystem",
+     "Stablecoin Issuer",
+     "Hydration Ecosystem",
+     "Governance"
+    ],
+    "links": {
+     "homepage": [
+      "https://sky.money/"
+     ],
+     "whitepaper": "https://ipfs.io/ipfs/Qmex5coqQPXqo4FvCkPqvKfH2ibBgACTsUV3YrTGaC86LQ",
+     "github": [],
+     "twitter": "SkyEcosystem",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0x56072c95faa701256059aa122697b133aded9279",
+      "https://intel.arkm.com/explorer/token/sky",
+      "https://ethplorer.io/address/0x56072c95faa701256059aa122697b133aded9279"
+     ]
+    },
+    "market": {
+     "price_usd": 0.079748,
+     "market_cap_usd": 1868357322,
+     "fully_diluted_valuation_usd": 1870501486,
+     "total_volume_24h_usd": 10628354,
+     "circulating_supply": 23432912130.867428,
+     "total_supply": 23459804203.605965,
+     "max_supply": 23462665147.3,
+     "ath_usd": 0.10087,
+     "ath_date": "2026-10-05T12:10:30.000Z",
+     "ath_change_pct": -20.93976,
+     "atl_usd": 0.03582727,
+     "atl_date": "2025-02-02T21:01:48.000Z",
+     "change_24h_pct": 3.58498,
+     "change_7d_pct": -16.45706,
+     "change_30d_pct": 31.562,
+     "change_1y_pct": 36.215
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:11:49.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/sky"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "sky"
+   },
+   "ok": true,
+   "output": {
+    "name": "Sky",
+    "slug": "maker",
+    "is_parent": true,
+    "other_protocols": [
+     "Sky",
+     "Sky Lending",
+     "Sky Money",
+     "Sky RWA"
+    ],
+    "symbol": "SKY",
+    "category": null,
+    "chains": [
+     "Ethereum",
+     "staking"
+    ],
+    "url": "https://sky.money/",
+    "twitter": "SkyEcosystem",
+    "github": [
+     "makerdao"
+    ],
+    "gecko_id": "sky",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": null,
+    "audit_links": null,
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "Sky enables users to get rewarded for non-custodial saving with USDS.",
+    "tvl_current_usd": 6220494676,
+    "tvl_date": "2026-10-11T17:44:23+00:00",
+    "tvl_90d_ago_usd": 6059768995,
+    "tvl_by_chain_usd": {
+     "Ethereum": 6220494676,
+     "staking": 826396408
+    },
+    "hallmarks": [],
+    "source_url": "https://api.llama.fi/protocol/sky"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "makerdao"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "makerdao",
+    "matches": [
+     {
+      "date": "2026-10-06",
+      "name": "MakerDAO ETH-A Liquidation Keeper Bot",
+      "classification": "Access Control",
+      "technique": "Improper Access Control",
+      "amount_usd": 538000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     },
+     {
+      "date": "2020-03-12",
+      "name": "MakerDAO",
+      "classification": "Oracle Manipulation",
+      "technique": "Stale Oracle Price",
+      "amount_usd": 8320000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     }
+    ],
+    "matches_total": 2
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "makerdao/dss"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/makerdao/dss",
+    "html_url": "https://github.com/sky-ecosystem/dss",
+    "full_name": "sky-ecosystem/dss",
+    "description": "Dai Stablecoin System",
+    "created_at": "2018-05-28T14:05:57Z",
+    "pushed_at": "2023-10-01T01:58:28Z",
+    "updated_at": "2026-09-30T03:07:34Z",
+    "stars": 836,
+    "forks": 458,
+    "open_issues": 36,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "AGPL-3.0",
+    "language": "Solidity",
+    "default_branch": "master",
+    "topics": [
+     "defi",
+     "ethereum",
+     "makerdao",
+     "solidity"
+    ],
+    "latest_commit": {
+     "sha": "fa4f6630afb0",
+     "date": "2022-05-18T14:07:24Z",
+     "message": "Add Cure (#247)\n\n* Add Cure\r\n\r\n* totalDebt() -> cure()\r\n\r\n* Add cage\r\n\r\n* No more local cure\r\n\r\n* Remove loop\r\n\r\n* Renam"
+    },
+    "contributors": 24,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "case": "safemoon",
+ "query": "SafeMoon",
+ "category": "abandoned",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "coingecko_search",
+   "input": {
+    "query": "SafeMoon"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.coingecko.com/api/v3/search?query=SafeMoon",
+    "coins": [
+     {
+      "id": "safemoon-2",
+      "name": "SafeMoon",
+      "symbol": "SFM",
+      "market_cap_rank": 3686
+     },
+     {
+      "id": "safemoon-inu",
+      "name": "SafeMoon Inu",
+      "symbol": "SMI",
+      "market_cap_rank": 4011
+     },
+     {
+      "id": "safemoon-5",
+      "name": "SAFEMOON",
+      "symbol": "SFM",
+      "market_cap_rank": 9878
+     },
+     {
+      "id": "safemoon-4",
+      "name": "SAFEMOON",
+      "symbol": "SAFEMOON",
+      "market_cap_rank": null
+     }
+    ]
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "safemoon-2",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "safemoon-2",
+    "symbol": "sfm",
+    "name": "SafeMoon",
+    "asset_platform_id": "solana",
+    "platforms": {
+     "solana": "ELPrcU7qRV3DUz8AP6siTE7GkR3gkkBvGmgBRiLnC19Y"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 3687,
+    "categories": [
+     "Solana Ecosystem",
+     "Meme",
+     "Alleged SEC Securities"
+    ],
+    "links": {
+     "homepage": [
+      "https://safemoon.com/"
+     ],
+     "whitepaper": null,
+     "github": [
+      "https://github.com/safemoonprotocol/Safemoon.sol"
+     ],
+     "twitter": "safemoon",
+     "blockchain_sites": [
+      "https://solscan.io/token/ELPrcU7qRV3DUz8AP6siTE7GkR3gkkBvGmgBRiLnC19Y",
+      "https://intel.arkm.com/explorer/token/safemoon-2"
+     ]
+    },
+    "market": {
+     "price_usd": 8.30171e-07,
+     "market_cap_usd": 509727,
+     "fully_diluted_valuation_usd": 509727,
+     "total_volume_24h_usd": 48.06,
+     "circulating_supply": 614007140465.79,
+     "total_supply": 614007140465.79,
+     "max_supply": 1000000000000.0,
+     "ath_usd": 0.00338272,
+     "ath_date": "2022-01-05T09:56:02.000Z",
+     "ath_change_pct": -99.97546,
+     "atl_usd": 7.6188e-08,
+     "atl_date": "2026-08-10T21:12:50.000Z",
+     "change_24h_pct": 1.01062,
+     "change_7d_pct": -23.12438,
+     "change_30d_pct": 25.67388,
+     "change_1y_pct": -87.46778
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:13:47.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/safemoon-2"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "safemoon"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "safemoon",
+    "matches": [
+     {
+      "date": "2023-03-28",
+      "name": "Safemoon",
+      "classification": "Access Control",
+      "technique": "Improper Access Control",
+      "amount_usd": 8900000,
+      "returned_funds_usd": null,
+      "chains": [
+       "BSC"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     }
+    ],
+    "matches_total": 1
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "safemoonprotocol/Safemoon.sol"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/safemoonprotocol/Safemoon.sol",
+    "html_url": "https://github.com/safemoonprotocol/Safemoon.sol",
+    "full_name": "safemoonprotocol/Safemoon.sol",
+    "description": "safemoon contract",
+    "created_at": "2021-03-04T01:14:49Z",
+    "pushed_at": "2022-05-27T01:22:07Z",
+    "updated_at": "2026-10-09T17:19:36Z",
+    "stars": 655,
+    "forks": 855,
+    "open_issues": 100,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": null,
+    "language": "Solidity",
+    "default_branch": "main",
+    "topics": [],
+    "latest_commit": {
+     "sha": "a2a1b922b126",
+     "date": "2021-03-04T01:29:31Z",
+     "message": "Create README.md"
+    },
+    "contributors": 1,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

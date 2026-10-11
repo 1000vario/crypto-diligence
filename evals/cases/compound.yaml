@@ -1,0 +1,91 @@
+id: compound
+query: Compound
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Lending protocol. The COMP governance token at 0xc00e94Cb662C3520282E6f5717214004A7f26888
+  has its source verified on Sourcify, is not a proxy, exposes no mint, pause or blacklist
+  selector and has a total supply of 10,000,000. DeFiLlama TVL about 1.6 billion USD for the
+  parent protocol (hallmark: COMP distribution began 2020-06-15); CoinGecko rank about 168,
+  market cap about 249 million USD on 2026-10-11. The repository
+  compound-finance/compound-protocol (BSD-3-Clause) was last pushed on 2022-06-07; the
+  current version, Compound III, lives in the comet repository. Dated event: on 2021-09-29
+  Proposal 62 shipped a Comptroller bug that let users claim far more COMP than intended, the
+  DeFiLlama database records it as an arithmetic error worth 147 million USD; supplied and
+  borrowed funds were not affected. The 2020-12-02 "Compounder Finance" row in the database is
+  an unrelated project.
+identity:
+  name: Compound
+  symbol: COMP
+  chain: ethereum
+  address: '0xc00e94cb662c3520282e6f5717214004a7f26888'
+  coingecko_id: compound-governance-token
+  defillama_slug: compound-finance
+checks:
+  - tool: get_contract_source
+    input: {address: '0xc00e94Cb662C3520282E6f5717214004A7f26888', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xc00e94Cb662C3520282E6f5717214004A7f26888'}
+  - tool: get_token_metadata
+    input: {address: '0xc00e94Cb662C3520282E6f5717214004A7f26888'}
+  - tool: coingecko_coin
+    input: {id_or_address: compound-governance-token, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: compound-finance}
+  - tool: defillama_hacks
+    input: {name_filter: compound}
+  - tool: github_repo
+    input: {owner_repo: compound-finance/compound-protocol}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xc00e94Cb662C3520282E6f5717214004A7f26888
+    title: Sourcify verification record of the COMP token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/compound-governance-token
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/compound-finance
+    title: DeFiLlama protocol page
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/compound-finance/compound-protocol
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+  - url: https://rekt.news/compound-rekt/
+    title: rekt.news on the Proposal 62 distribution bug of 2021-09-29
+    accessed: '2026-10-11'
+  - url: https://www.theblock.co/post/119086
+    title: The Block, 2021-09-29, Compound bug puts COMP rewards at risk
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: supply-10-million
+    agent: onchain
+    pattern: '(?i)(10[,. ]?000[,. ]?000|10 million|\b10M\b)'
+  - id: no-sensitive-functions
+    agent: onchain
+    pattern: '(?i)(no (sensitive|mint|pause|blacklist|owner|upgrade)|none (of|found|detected|present)|not (found|present|detected|exposed)|absent)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: bsd-licence
+    agent: docs
+    pattern: '(?i)(BSD|licen[cs]e)'
+  - id: comet-or-v3
+    agent: docs
+    pattern: '(?i)(comet|compound iii|v3|compound-protocol)'
+  - id: proposal-62-bug-2021
+    agent: incidents
+    pattern: '(?i)(proposal 62|september 2021|2021-09|comptroller|distribution bug|over-?distribut|misallocat|147)'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: deposits-stolen
+    pattern: '(?i)(user (funds|deposits) (were )?(stolen|drained)|rug ?pull|exit scam)'
+expected_contradictions: []

@@ -1,0 +1,101 @@
+id: beanstalk
+query: Beanstalk
+category: exploit
+truth_date: '2026-10-11'
+summary: >-
+  Credit-based stablecoin protocol. On 2022-04-17 a flash-loan governance attack passed and
+  executed a malicious proposal in one transaction, draining about 181 million USD of
+  collateral (about 77 million USD of attacker profit per contemporary accounts). The
+  protocol replanted on 2022-08-05 and migrated to Arbitrum on 2024-10-10 (DeFiLlama
+  hallmarks). The BEAN token on Ethereum at 0xBEA0000029AD1c77D3d5D23Ba2D8893dB9d1Efab is an
+  exact match on Sourcify, has 6 decimals, exposes mint, burn and burnFrom, and a supply of
+  about 33.4 million. CoinGecko does not list this token (search and contract lookup both
+  return nothing); DeFiLlama lists the protocol with audits (Omniscia and two Arweave
+  reports) and a TVL of 0 on Ethereum, while the GitHub repository BeanstalkFarms/Beanstalk
+  (MIT) was pushed on 2026-09-15 and the Arbitrum deployment carries the activity. A report
+  should surface the gap between the zero TVL and the active development.
+identity:
+  name: Beanstalk
+  symbol: BEAN
+  chain: ethereum
+  address: '0xbea0000029ad1c77d3d5d23ba2d8893db9d1efab'
+  coingecko_id: null
+  defillama_slug: beanstalk
+checks:
+  - tool: get_contract_source
+    input: {address: '0xBEA0000029AD1c77D3d5D23Ba2D8893dB9d1Efab', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xBEA0000029AD1c77D3d5D23Ba2D8893dB9d1Efab'}
+  - tool: get_token_metadata
+    input: {address: '0xBEA0000029AD1c77D3d5D23Ba2D8893dB9d1Efab'}
+  - tool: coingecko_search
+    input: {query: Beanstalk}
+  - tool: defillama_search
+    input: {query: Beanstalk}
+  - tool: defillama_protocol
+    input: {slug: beanstalk}
+  - tool: defillama_hacks
+    input: {name_filter: beanstalk}
+  - tool: github_repo
+    input: {owner_repo: BeanstalkFarms/Beanstalk}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xBEA0000029AD1c77D3d5D23Ba2D8893dB9d1Efab
+    title: Sourcify verification record of the BEAN token
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/beanstalk
+    title: DeFiLlama protocol page, TVL, audits and hallmarks
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database (Beanstalk, 2022-04-17, 181 million USD, flash-loan governance)
+    accessed: '2026-10-11'
+  - url: https://rekt.news/beanstalk-rekt/
+    title: rekt.news on the Beanstalk governance exploit of 2022-04-17
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/search?query=Beanstalk
+    title: CoinGecko search (API), no Beanstalk result
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/BeanstalkFarms/Beanstalk
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-or-burn
+    agent: onchain
+    pattern: '(?i)(mint|burn)'
+  - id: supply-or-decimals
+    agent: onchain
+    pattern: '(?i)(33[,. ]?\d\d\d[,. ]?\d\d\d|33(\.\d)? ?million|33 ?M\b|6 decimals|decimals.{0,6}6)'
+  - id: not-on-coingecko
+    agent: market
+    pattern: '(?i)(not (listed|found|indexed|available) (on|by|in) coingecko|coingecko (has|lists|returned|returns) (no|nothing)|no coingecko|absent from coingecko)'
+  - id: tvl-or-arbitrum
+    agent: market
+    pattern: '(?i)(tvl|total value locked|arbitrum)'
+  - id: licence-or-activity
+    agent: docs
+    pattern: '(?i)(MIT|licen[cs]e|active|2026|commit|push)'
+  - id: audits
+    agent: docs
+    pattern: '(?i)(audit|omniscia|halborn|trail of bits|arweave)'
+  - id: exploit-date
+    agent: incidents
+    pattern: '(?i)(april 2022|2022-04-17|apr(il)? 17,? 2022)'
+  - id: amount
+    agent: incidents
+    pattern: '(?i)(18[0-2]|77 ?million|76 ?million|182)'
+  - id: technique
+    agent: incidents
+    pattern: '(?i)(flash ?loan|governance|emergencyCommit|BIP-?1[89]|malicious proposal)'
+  - id: replant
+    agent: incidents
+    pattern: '(?i)(replant|relaunch|august 2022|2022-08)'
+forbidden_facts:
+  - id: no-exploit
+    pattern: '(?i)(no (known |recorded |reported |major )?(exploit|hack|incident)|never (been )?(hacked|exploited))'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions:
+  - id: zero-tvl-versus-activity
+    pattern: '(?i)(tvl|arbitrum|migrat|zero|\$ ?0\b|0 usd|active|abandon|dead)'

@@ -1,0 +1,301 @@
+{
+ "case": "compound",
+ "query": "Compound",
+ "category": "healthy",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xc00e94Cb662C3520282E6f5717214004A7f26888",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xc00e94cb662c3520282e6f5717214004a7f26888",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T13:50:24Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xc00e94Cb662C3520282E6f5717214004A7f26888"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 6795,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {},
+    "selectors_in_implementation": null,
+    "owner": null,
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xc00e94Cb662C3520282E6f5717214004A7f26888"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Compound",
+    "symbol": "COMP",
+    "decimals": 18,
+    "total_supply_raw": "10000000000000000000000000",
+    "total_supply": 10000000.0
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "compound-governance-token",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "compound-governance-token",
+    "symbol": "comp",
+    "name": "Compound",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+     "near-protocol": "c00e94cb662c3520282e6f5717214004a7f26888.factory.bridge.near",
+     "base": "0x9e1028f5f1d5ede59748ffcee5532509976840e0",
+     "harmony-shard-0": "0x32137b9275ea35162812883582623cd6f6950958",
+     "energi": "0x66bc411714e16b6f0c68be12bd9c666cc4576063",
+     "sora": "0x00dbd45af9f2ea406746f9025110297469e9d29efc60df8d88efb9b0179d6c2c",
+     "polygon-pos": "0x8505b9d2254a7ae468c0e9dd10ccea3a837aef5c",
+     "binance-smart-chain": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+     "arbitrum-one": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+     "avalanche": "0xc3048e19e76cb9a3aa9d77d8c03c29fc906e2437"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 168,
+    "categories": [
+     "Decentralized Finance (DeFi)",
+     "Yield Farming",
+     "BNB Chain Ecosystem",
+     "Lending/Borrowing Protocols",
+     "Avalanche Ecosystem",
+     "Polygon Ecosystem",
+     "Near Protocol Ecosystem",
+     "Harmony Ecosystem"
+    ],
+    "links": {
+     "homepage": [
+      "https://www.compound.xyz"
+     ],
+     "whitepaper": "https://compound.finance/documents/Compound.Whitepaper.pdf",
+     "github": [
+      "https://github.com/compound-finance/compound-protocol"
+     ],
+     "twitter": "Compound_xyz",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "https://ethplorer.io/address/0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "https://arbiscan.io/token/0x354a6da3fcde098f8389cad84b0182725c6c91de"
+     ]
+    },
+    "market": {
+     "price_usd": 24.92,
+     "market_cap_usd": 249151382,
+     "fully_diluted_valuation_usd": 249151382,
+     "total_volume_24h_usd": 14572311,
+     "circulating_supply": 10000000.0,
+     "total_supply": 10000000.0,
+     "max_supply": 10000000.0,
+     "ath_usd": 854.45,
+     "ath_date": "2021-05-11T16:00:00.000Z",
+     "ath_change_pct": -97.084,
+     "atl_usd": 14.86,
+     "atl_date": "2026-06-25T13:59:30.000Z",
+     "change_24h_pct": -0.08253,
+     "change_7d_pct": -0.79116,
+     "change_30d_pct": 23.21022,
+     "change_1y_pct": -23.79089
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:07:48.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/compound-governance-token"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "compound-finance"
+   },
+   "ok": true,
+   "output": {
+    "name": "Compound Finance",
+    "slug": "compound-finance",
+    "is_parent": true,
+    "other_protocols": [
+     "Compound Finance",
+     "Compound V3",
+     "Compound V2",
+     "Compound V1"
+    ],
+    "symbol": "COMP",
+    "category": null,
+    "chains": [
+     "Ethereum",
+     "borrowed",
+     "Arbitrum",
+     "Base",
+     "OP Mainnet",
+     "Polygon",
+     "Mantle",
+     "Unichain"
+    ],
+    "url": "https://www.compound.xyz/",
+    "twitter": "Compound_xyz",
+    "github": [
+     "compound-finance"
+    ],
+    "gecko_id": "compound-governance-token",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": null,
+    "audit_links": null,
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "Compound is an algorithmic, autonomous interest rate protocol built for developers, to unlock a universe of open financial applications.",
+    "tvl_current_usd": 1575627362,
+    "tvl_date": "2026-10-11T17:43:23+00:00",
+    "tvl_90d_ago_usd": 1223732178,
+    "tvl_by_chain_usd": {
+     "Ethereum": 1462237905,
+     "borrowed": 668896356,
+     "Arbitrum": 69374946,
+     "Base": 26801320,
+     "OP Mainnet": 9647116,
+     "Polygon": 4671438,
+     "Mantle": 1658458,
+     "Unichain": 683092
+    },
+    "hallmarks": [
+     {
+      "date": "2020-06-15T00:00:00+00:00",
+      "text": "COMP distribution begins"
+     }
+    ],
+    "source_url": "https://api.llama.fi/protocol/compound-finance"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "compound"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "compound",
+    "matches": [
+     {
+      "date": "2021-09-29",
+      "name": "Compound V2",
+      "classification": "Token & Share Accounting",
+      "technique": "Arithmetic Error",
+      "amount_usd": 147000000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "114"
+     },
+     {
+      "date": "2020-12-02",
+      "name": "Compounder Finance",
+      "classification": "Rugpull",
+      "technique": "Admin Drain",
+      "amount_usd": 12464316,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": null
+     }
+    ],
+    "matches_total": 2
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "compound-finance/compound-protocol"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/compound-finance/compound-protocol",
+    "html_url": "https://github.com/compound-finance/compound-protocol",
+    "full_name": "compound-finance/compound-protocol",
+    "description": "The Compound On-Chain Protocol",
+    "created_at": "2019-08-02T22:37:25Z",
+    "pushed_at": "2024-06-10T04:19:47Z",
+    "updated_at": "2026-10-07T15:38:05Z",
+    "stars": 2032,
+    "forks": 1254,
+    "open_issues": 85,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "BSD-3-Clause",
+    "language": "TypeScript",
+    "default_branch": "master",
+    "topics": [],
+    "latest_commit": {
+     "sha": "a3214f67b733",
+     "date": "2022-06-07T01:47:37Z",
+     "message": "[RFP12] CToken Cleanup (#152)\n\n* Upgrade Contracts to 0.8.6\r\n\r\n* Remove CToken SafeMath, use Custom Errors\r\n\r\n* EnterExi"
+    },
+    "contributors": 19,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

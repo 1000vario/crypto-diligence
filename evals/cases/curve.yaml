@@ -1,0 +1,94 @@
+id: curve
+query: CRV
+category: exploit
+truth_date: '2026-10-11'
+summary: >-
+  Stablecoin-focused decentralised exchange, queried by its symbol. The CRV token at
+  0xD533a949740bb3306d119CC777fa900bA034cd52 has its source verified on Sourcify (record of
+  2025-01-08), exposes mint and burn selectors and has a total supply of about 2.43 billion.
+  CoinGecko lists it as Curve DAO, rank 110, market cap about 582 million USD on 2026-10-11.
+  The DeFiLlama protocol pages curve-dex and curve-finance exceed 30 MB and the fetch tool
+  refuses them, so TVL must come from another route or be declared missing. The repository
+  curvefi/curve-contract (licence NOASSERTION) was last pushed 2025-05-29. Dated incidents in
+  the DeFiLlama database: a DNS hijack of the front end on 2022-08-09 (575,000 USD, returned),
+  the Vyper compiler reentrancy bug on 2023-07-30 (61.7 million USD per DeFiLlama, other
+  sources count up to about 70 million USD), an MEV bot loss on 2023-11-07 (2 million USD) and
+  a LlamaLend donation attack on 2026-03-02 (240,000 USD). The 2026-02-01 CrossCurve row is an
+  unrelated project.
+identity:
+  name: Curve DAO
+  symbol: CRV
+  chain: ethereum
+  address: '0xd533a949740bb3306d119cc777fa900ba034cd52'
+  coingecko_id: curve-dao-token
+  defillama_slug: curve-dex
+checks:
+  - tool: get_contract_source
+    input: {address: '0xD533a949740bb3306d119CC777fa900bA034cd52', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0xD533a949740bb3306d119CC777fa900bA034cd52'}
+  - tool: get_token_metadata
+    input: {address: '0xD533a949740bb3306d119CC777fa900bA034cd52'}
+  - tool: coingecko_search
+    input: {query: CRV}
+  - tool: coingecko_coin
+    input: {id_or_address: curve-dao-token, lookup: id}
+  - tool: defillama_hacks
+    input: {name_filter: curve}
+  - tool: github_repo
+    input: {owner_repo: curvefi/curve-contract}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0xD533a949740bb3306d119CC777fa900bA034cd52
+    title: Sourcify verification record of the CRV token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/curve-dao-token
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://hackmd.io/@vyperlang/HJUgNMhs2
+    title: Vyper post-mortem of the 2023-07-30 reentrancy lock bug
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/curvefi/curve-contract
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-function
+    agent: onchain
+    pattern: '(?i)mint'
+  - id: supply-2-4-billion
+    agent: onchain
+    pattern: '(?i)(2[,. ]?4\d\d[,. ]?\d\d\d[,. ]?\d\d\d|2\.4\d? ?billion|2\.4 ?B\b)'
+  - id: price-and-market-cap
+    agent: market
+    pattern: '(?i)(price|market cap|rank)'
+  - id: tvl-missing-or-found
+    agent: market
+    pattern: '(?i)(tvl|total value locked|too large|30 ?MB|size limit|unavailable)'
+  - id: licence
+    agent: docs
+    pattern: '(?i)(licen[cs]e|noassertion)'
+  - id: repository
+    agent: docs
+    pattern: '(?i)(github|repositor|curvefi)'
+  - id: vyper-2023
+    agent: incidents
+    pattern: '(?i)(vyper|reentranc|re-entranc|july 2023|2023-07)'
+  - id: vyper-amount
+    agent: incidents
+    pattern: '(?i)(6\d(\.\d+)? ?(m\b|million)|7\d(\.\d+)? ?(m\b|million))'
+  - id: dns-2022
+    agent: incidents
+    pattern: '(?i)(dns|front-?end|hijack|2022-08|august 2022)'
+forbidden_facts:
+  - id: no-exploit
+    pattern: '(?i)(no (known |recorded |reported |major )?(exploit|hack|incident)|never (been )?(hacked|exploited))'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions:
+  - id: vyper-loss-amount
+    pattern: '(?i)(6\d(\.\d+)? ?(m\b|million)|7\d(\.\d+)? ?(m\b|million)|amount|figures? (differ|vary)|estimate)'

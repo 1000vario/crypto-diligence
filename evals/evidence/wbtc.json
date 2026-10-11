@@ -1,0 +1,336 @@
+{
+ "case": "wbtc",
+ "query": "WBTC",
+ "category": "sensitive",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T11:53:28Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 4582,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "mint(address,uint256)": true,
+     "burn(uint256)": true,
+     "pause()": true,
+     "unpause()": true,
+     "paused()": true,
+     "owner()": true,
+     "transferOwnership(address)": true,
+     "renounceOwnership()": true
+    },
+    "selectors_in_implementation": null,
+    "owner": "0xca06411bd7a7296d7dbdd0050dfc846e95febeb7",
+    "paused": false,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+   },
+   "ok": true,
+   "output": {
+    "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Wrapped BTC",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "total_supply_raw": "11613218273262",
+    "total_supply": 116132.18273262
+   }
+  },
+  {
+   "tool": "get_token_holders",
+   "input": {
+    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "limit": 10
+   },
+   "ok": true,
+   "output": {
+    "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "source_urls": [
+     "https://api.ethplorer.io/getTokenInfo/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599?apiKey=freekey",
+     "https://api.ethplorer.io/getTopTokenHolders/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599?apiKey=freekey"
+    ],
+    "holders_count": 195530,
+    "owner_field": "0xca06411bd7a7296d7dbdd0050dfc846e95febeb7",
+    "decimals": "8",
+    "total_supply_raw": "11613218273262",
+    "top_holders": [
+     {
+      "address": "0x5ee5bf7ae06d1be5997a1a72006fe6c607ec6de8",
+      "share_pct": 29.12,
+      "is_contract": true
+     },
+     {
+      "address": "0xa3a7b6f88361f48403514059f1f16c8e78d60eec",
+      "share_pct": 6.35,
+      "is_contract": true
+     },
+     {
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "share_pct": 5.06,
+      "is_contract": true
+     },
+     {
+      "address": "0xc3d688b66703497daa19211eedff47f25384cdc3",
+      "share_pct": 4.13,
+      "is_contract": true
+     },
+     {
+      "address": "0x3ee18b2214aff97000d974cf647e7c347e8fa585",
+      "share_pct": 2.19,
+      "is_contract": true
+     },
+     {
+      "address": "0x4197ba364ae6698015ae5c1468f54087602715b2",
+      "share_pct": 1.9,
+      "is_contract": true
+     },
+     {
+      "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
+      "share_pct": 1.65,
+      "is_contract": true
+     },
+     {
+      "address": "0x176f3dab24a159341c0509bb36b833e7fdd0a132",
+      "share_pct": 1.46,
+      "is_contract": false
+     },
+     {
+      "address": "0x3afdc9bca9213a35503b077a6072f3d0d5ab0840",
+      "share_pct": 1.25,
+      "is_contract": true
+     },
+     {
+      "address": "0x250893ca4ba5d05626c785e8da758026928fcd24",
+      "share_pct": 1.12,
+      "is_contract": true
+     }
+    ],
+    "top_n_share_pct": 54.23,
+    "top_n": 10,
+    "notes": [
+     "A large holder that is a contract is often an exchange, a bridge, a staking or a treasury contract; its share is not one person's. Say which when known."
+    ]
+   }
+  },
+  {
+   "tool": "coingecko_search",
+   "input": {
+    "query": "WBTC"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.coingecko.com/api/v3/search?query=WBTC",
+    "coins": [
+     {
+      "id": "compound-wrapped-btc",
+      "name": "cWBTC",
+      "symbol": "CWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "iowbtc",
+      "name": "ioWBTC",
+      "symbol": "IOWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "aave-wbtc",
+      "name": "Aave WBTC",
+      "symbol": "AWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "geist-wbtc",
+      "name": "Geist WBTC",
+      "symbol": "GWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "wbtc-yvault",
+      "name": "WBTC yVault",
+      "symbol": "YVWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "aave-v3-wbtc",
+      "name": "Aave v3 WBTC",
+      "symbol": "AWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "exactly-wbtc",
+      "name": "Exactly WBTC",
+      "symbol": "EXAWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "aave-wbtc-v1",
+      "name": "Aave WBTC v1",
+      "symbol": "AWBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "bridged-wbtc",
+      "name": "Bridged WBTC",
+      "symbol": "WBTC",
+      "market_cap_rank": null
+     },
+     {
+      "id": "aave-amm-wbtc",
+      "name": "Aave AMM WBTC",
+      "symbol": "AAMMWBTC",
+      "market_cap_rank": null
+     }
+    ]
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "wrapped-bitcoin",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "wrapped-bitcoin",
+    "symbol": "wbtc",
+    "name": "Wrapped Bitcoin",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+     "base": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "osmosis": "factory/osmo1z0qrq605sjgcqpylfl4aa6s90x738j7m58wyatt0tdzflg2ha26q67k743/wbtc",
+     "berachain": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "sonic": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "telos": "0x7627b27594bc71e6ab0fce755ae8931eb1e12dac",
+     "swellchain": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "unichain": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "monad": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "soneium": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "sei-v2": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "binance-smart-chain": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "sui": "0x0041f9f9344cac094454cd574e333c4fdb132d7bcc9379bcd4aab485b2a63942::wbtc::WBTC",
+     "tron": "TYhWwKpw43ENFWBTGpzLHn3882f2au7SMi",
+     "solana": "5XZw2LKTyrfvfiskJ78AMpackRjPcyCif1WhUsPDuVqQ",
+     "hedera-hashgraph": "0xd7d4d91d64a6061fa00a94e2b3a2d2a5fb677849",
+     "optimistic-ethereum": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+     "aptos": "0x68844a0d7f2587e726ad0579f3d640865bb4162c08a4589eeda3f9689ec52a3d",
+     "avalanche": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+     "bob-network": "0x0555e30da8f98308edb960aa94c0db47230d2b9c"
+    },
+    "genesis_date": null,
+    "market_cap_rank": null,
+    "categories": [
+     "Crypto-Backed Tokens",
+     "Tokenized BTC",
+     "BNB Chain Ecosystem",
+     "Wrapped-Tokens",
+     "Solana Ecosystem",
+     "Avalanche Ecosystem",
+     "Ethereum Ecosystem",
+     "Optimism Ecosystem"
+    ],
+    "links": {
+     "homepage": [
+      "https://www.wbtc.network/"
+     ],
+     "whitepaper": "https://www.wbtc.network/assets/wrapped-tokens-whitepaper.pdf",
+     "github": [],
+     "twitter": "WrappedBTC",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "https://ethplorer.io/address/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "https://ethereum.dex.guru/token/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+     ]
+    },
+    "market": {
+     "price_usd": 83515,
+     "market_cap_usd": 9698457470,
+     "fully_diluted_valuation_usd": 9698457470,
+     "total_volume_24h_usd": 52048648,
+     "circulating_supply": 116132.18273262,
+     "total_supply": 116132.18273262,
+     "max_supply": null,
+     "ath_usd": 125932,
+     "ath_date": "2025-10-06T10:55:19.000Z",
+     "ath_change_pct": -33.68242,
+     "atl_usd": 3139.17,
+     "atl_date": "2019-04-01T16:00:00.000Z",
+     "change_24h_pct": 0.79648,
+     "change_7d_pct": -2.07045,
+     "change_30d_pct": 8.38198,
+     "change_1y_pct": -25.33922
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:15:52.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/wrapped-bitcoin"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "wbtc"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "wbtc",
+    "matches": [],
+    "matches_total": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+id: uniswap
+query: Uniswap
+category: healthy
+truth_date: '2026-10-11'
+summary: >-
+  Decentralised exchange protocol on Ethereum: V1 in 2018, V2 launched 2020-05-04, V3 launched
+  2021-05-04 (DeFiLlama hallmarks). The UNI governance token at
+  0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 has its source verified on Sourcify, is not a
+  proxy, has a total supply of 1,000,000,000 and exposes a mint function reserved to the
+  governance-controlled minter. DeFiLlama TVL about 3.9 billion USD on 2026-10-11. The public
+  exploit database lists a V1 reentrancy through the imBTC token on 2020-04-18 (about 220,000
+  USD) and a phishing campaign against liquidity providers on 2022-07-11 (about 8 million USD);
+  neither is a flaw of the current contracts.
+identity:
+  name: Uniswap
+  symbol: UNI
+  chain: ethereum
+  address: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984'
+  coingecko_id: uniswap
+  defillama_slug: uniswap
+checks:
+  - tool: get_contract_source
+    input: {address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'}
+  - tool: get_token_metadata
+    input: {address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'}
+  - tool: coingecko_coin
+    input: {id_or_address: uniswap, lookup: id}
+  - tool: defillama_protocol
+    input: {slug: uniswap}
+  - tool: defillama_hacks
+    input: {name_filter: uniswap}
+  - tool: github_repo
+    input: {owner_repo: Uniswap/v3-core}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
+    title: Sourcify verification record of the UNI token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/uniswap
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/protocol/uniswap
+    title: DeFiLlama protocol page, TVL and dated hallmarks
+    accessed: '2026-10-11'
+  - url: https://api.llama.fi/hacks
+    title: DeFiLlama public exploit database
+    accessed: '2026-10-11'
+  - url: https://api.github.com/repos/Uniswap/v3-core
+    title: GitHub repository metadata
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-function
+    agent: onchain
+    pattern: '(?i)mint'
+  - id: supply-one-billion
+    agent: onchain
+    pattern: '(?i)(1[,. ]?000[,. ]?000[,. ]?000|1 billion|1e\+?9|10\^9|\b1B\b)'
+  - id: tvl
+    agent: market
+    pattern: '(?i)(tvl|total value locked)'
+  - id: price-and-volume
+    agent: market
+    pattern: '(?i)(price|volume|market cap)'
+  - id: licence
+    agent: docs
+    pattern: '(?i)licen[cs]e'
+  - id: repository
+    agent: docs
+    pattern: '(?i)(github|repositor)'
+  - id: phishing-2022
+    agent: incidents
+    pattern: '(?i)phishing'
+  - id: reentrancy-2020
+    agent: incidents
+    pattern: '(?i)(reentranc|re-entranc|imBTC)'
+forbidden_facts:
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+  - id: rug-or-depeg
+    pattern: '(?i)(rug ?pull|exit scam|depeg)'
+expected_contradictions: []

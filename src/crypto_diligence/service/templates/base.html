@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}crypto-diligence{% endblock %}</title>
+<style>
+  :root { --fg: #1b1f23; --bg: #fdfdfc; --muted: #6a737d; --line: #e1e4e8; --accent: #0b5fff; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: var(--fg); background: var(--bg); }
+  main { max-width: 56rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
+  header { border-bottom: 1px solid var(--line); }
+  header div { max-width: 56rem; margin: 0 auto; padding: .6rem 1rem; display: flex; gap: 1rem; align-items: baseline; }
+  header a { color: inherit; text-decoration: none; font-weight: 600; }
+  .notice { background: #fff8e1; border: 1px solid #f2d36b; padding: .6rem .8rem; border-radius: 4px; margin: 1rem 0; }
+  .muted { color: var(--muted); }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  input[type=text], input[type=email] { font: inherit; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  button { font: inherit; padding: .45rem .9rem; background: var(--accent); color: #fff; border: 0; border-radius: 4px; }
+  .claim { margin: .6rem 0; padding-left: .8rem; border-left: 3px solid var(--line); }
+  .claim.unsourced { border-color: #d73a49; }
+  .tag { font-size: .8rem; color: var(--muted); }
+  .error { color: #d73a49; }
+  .conf-high { color: #22863a; } .conf-medium { color: #b08800; } .conf-low { color: var(--muted); }
+</style>
+</head>
+<body>
+<header><div><a href="/">crypto-diligence</a> <span class="muted">v{{ version }}</span>
+  <a href="/reports" style="font-weight:400">Reports</a>
+  <a href="https://github.com/1000vario/crypto-diligence" style="font-weight:400">Source</a></div></header>
+<main>
+<p class="notice"><strong>Information tool, not advice.</strong> {{ disclaimer }}</p>
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>

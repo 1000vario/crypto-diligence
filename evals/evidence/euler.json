@@ -1,0 +1,295 @@
+{
+ "case": "euler",
+ "query": "0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b",
+ "category": "exploit",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+     "verified": true,
+     "match": "exact_match",
+     "verified_at": "2024-08-08T14:37:29Z",
+     "creation_match": "exact_match",
+     "runtime_match": "exact_match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 19936,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {},
+    "selectors_in_implementation": null,
+    "owner": null,
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Euler",
+    "symbol": "EUL",
+    "decimals": 18,
+    "total_supply_raw": "27182818284590452353602874",
+    "total_supply": 27182818.284590453
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "0xd9Fcd98c322942075A5C3860693e9f4f03AAE07b",
+    "lookup": "contract"
+   },
+   "ok": true,
+   "output": {
+    "id": "euler",
+    "symbol": "eul",
+    "name": "Euler",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+     "arbitrum-one": "0x462cd9e0247b2e63831c3189ae738e5e9a5a4b64",
+     "base": "0xa153ad732f831a79b5575fa02e793ec4e99181b0",
+     "binance-smart-chain": "0x2117e8b79e8e176a670c9fcf945d4348556bffad",
+     "unichain": "0xe9c43e09c5fa733bcc2aeaa96063a4a60147aa09",
+     "plasma": "0xca632fa58397391c750c13f935daa61abbe0baa6",
+     "sonic": "0x2117e8b79e8e176a670c9fcf945d4348556bffad",
+     "berachain": "0xeb9b5f4eb023ae754ff59a04c9c038d58606dac6",
+     "swellchain": "0x80ccfbec4b8c82265abdc226ad3df84c0726e7a3",
+     "tac": "0x38c043856a109066d64a60c82e07848a1c58e7dc",
+     "avalanche": "0x9ceed3a7f753608372eeab300486cc7c2f38ac68",
+     "bob-network": "0xde1763afa5eb658cffffd16835afeb47e7ac0b8d"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 630,
+    "categories": [
+     "BNB Chain Ecosystem",
+     "Lending/Borrowing Protocols",
+     "Avalanche Ecosystem",
+     "Arbitrum Ecosystem",
+     "Ethereum Ecosystem",
+     "Base Ecosystem",
+     "Berachain Ecosystem",
+     "Paradigm Portfolio"
+    ],
+    "links": {
+     "homepage": [
+      "https://www.euler.finance/"
+     ],
+     "whitepaper": "https://docs.euler.finance/getting-started/white-paper",
+     "github": [
+      "https://github.com/euler-xyz"
+     ],
+     "twitter": "eulerfinance",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+      "https://ethplorer.io/address/0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+      "https://uniscan.xyz/token/0xe9c43e09c5fa733bcc2aeaa96063a4a60147aa09"
+     ]
+    },
+    "market": {
+     "price_usd": 1.43,
+     "market_cap_usd": 34405753,
+     "fully_diluted_valuation_usd": 38912209,
+     "total_volume_24h_usd": 1507190,
+     "circulating_supply": 24034753.02484756,
+     "total_supply": 27182818.28459,
+     "max_supply": 27182818.0,
+     "ath_usd": 15.81,
+     "ath_date": "2025-07-10T21:56:24.000Z",
+     "ath_change_pct": -90.948,
+     "atl_usd": 0.719702,
+     "atl_date": "2026-03-29T22:44:00.000Z",
+     "change_24h_pct": 1.68901,
+     "change_7d_pct": -0.04113,
+     "change_30d_pct": 18.87542,
+     "change_1y_pct": -83.25335
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:10:51.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/ethereum/contract/0xd9fcd98c322942075a5c3860693e9f4f03aae07b"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "euler"
+   },
+   "ok": true,
+   "output": {
+    "name": "Euler",
+    "slug": "euler",
+    "is_parent": true,
+    "other_protocols": [
+     "Euler",
+     "Euler V2",
+     "Euler V1"
+    ],
+    "symbol": "EUL",
+    "category": null,
+    "chains": [
+     "borrowed",
+     "Monad",
+     "Ethereum",
+     "Base",
+     "BOB",
+     "Avalanche",
+     "Hyperliquid L1",
+     "Unichain"
+    ],
+    "url": "https://www.euler.finance",
+    "twitter": "eulerfinance",
+    "github": [
+     "euler-xyz"
+    ],
+    "gecko_id": "euler",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": null,
+    "audit_links": null,
+    "audit_note": null,
+    "listed_at": null,
+    "dead_from": null,
+    "description": "Euler revolutionizes DeFi by letting any asset become collateral for a lending market. Lenders and borrowers get market leading risk-adjusted rates. Builders can create and manage markets exactly how they want them, with institutional-grade security.",
+    "tvl_current_usd": 303406338,
+    "tvl_date": "2026-10-11T17:43:23+00:00",
+    "tvl_90d_ago_usd": 288723569,
+    "tvl_by_chain_usd": {
+     "borrowed": 337876317,
+     "Monad": 216476339,
+     "Ethereum": 53107732,
+     "Base": 15122877,
+     "BOB": 4985033,
+     "Avalanche": 4581591,
+     "Hyperliquid L1": 2035802,
+     "Unichain": 1986116
+    },
+    "hallmarks": [
+     {
+      "date": "2022-06-05T00:00:00+00:00",
+      "text": "Whale Deposit"
+     },
+     {
+      "date": "2022-11-08T00:00:00+00:00",
+      "text": "FTX collapse"
+     },
+     {
+      "date": "2025-11-04T00:00:00+00:00",
+      "text": "Stream finance rug"
+     }
+    ],
+    "source_url": "https://api.llama.fi/protocol/euler"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "euler"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "euler",
+    "matches": [
+     {
+      "date": "2023-03-13",
+      "name": "Euler V1",
+      "classification": "Token & Share Accounting",
+      "technique": "Donation Attack",
+      "amount_usd": 197000000,
+      "returned_funds_usd": 240000000,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "DeFi Protocol",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "1183"
+     }
+    ],
+    "matches_total": 1
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "euler-xyz/euler-contracts"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/euler-xyz/euler-contracts",
+    "html_url": "https://github.com/euler-legacy-xyz/euler-contracts",
+    "full_name": "euler-legacy-xyz/euler-contracts",
+    "description": null,
+    "created_at": "2021-03-29T13:22:18Z",
+    "pushed_at": "2024-05-24T14:50:08Z",
+    "updated_at": "2026-09-06T12:45:12Z",
+    "stars": 128,
+    "forks": 55,
+    "open_issues": 25,
+    "archived": true,
+    "disabled": false,
+    "fork": false,
+    "license": "NOASSERTION",
+    "language": "JavaScript",
+    "default_branch": "master",
+    "topics": [],
+    "latest_commit": {
+     "sha": "24da0f2de98d",
+     "date": "2024-05-24T14:49:54Z",
+     "message": "deprecation notice, links to next gen system"
+    },
+    "contributors": 9,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}

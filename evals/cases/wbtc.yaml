@@ -1,0 +1,104 @@
+id: wbtc
+query: WBTC
+category: sensitive
+truth_date: '2026-10-11'
+summary: >-
+  Bitcoin wrapped on Ethereum, queried by its symbol. The contract at
+  0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599 has its source verified on Sourcify, is not a
+  proxy, has 8 decimals, a supply of about 116,000 WBTC and exposes mint, burn, pause,
+  unpause, transferOwnership and renounceOwnership under an owner contract controlled by the
+  custodian; merchants mint and burn through the custodian. CoinGecko lists it as
+  wrapped-bitcoin with a price tracking bitcoin. No row in the DeFiLlama exploit database.
+  Dated events about custody rather than code: on 2024-08-09 BitGo announced a joint venture
+  with BiT Global (revised 2024-08-14) to share control of the custody keys; on 2024-09-19
+  Sky (formerly MakerDAO) voted with 88 percent in favour to offboard WBTC as collateral; on
+  2024-11-19 Coinbase announced it would suspend WBTC trading from 2024-12-19; BiT Global
+  sued Coinbase on 2024-12-13 and a court declined to block the delisting. BitGo stated that
+  control had not changed hands while critics said it had: a report must show both claims.
+  Holder concentration is readable from Ethplorer and belongs in the report.
+identity:
+  name: Wrapped Bitcoin
+  symbol: WBTC
+  chain: ethereum
+  address: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599'
+  coingecko_id: wrapped-bitcoin
+  defillama_slug: null
+checks:
+  - tool: get_contract_source
+    input: {address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', chain_id: 1}
+  - tool: analyze_bytecode
+    input: {address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599'}
+  - tool: get_token_metadata
+    input: {address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599'}
+  - tool: get_token_holders
+    input: {address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', limit: 10}
+  - tool: coingecko_search
+    input: {query: WBTC}
+  - tool: coingecko_coin
+    input: {id_or_address: wrapped-bitcoin, lookup: id}
+  - tool: defillama_hacks
+    input: {name_filter: wbtc}
+sources:
+  - url: https://sourcify.dev/server/v2/contract/1/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599
+    title: Sourcify verification record of the WBTC token
+    accessed: '2026-10-11'
+  - url: https://api.coingecko.com/api/v3/coins/wrapped-bitcoin
+    title: CoinGecko coin page (API)
+    accessed: '2026-10-11'
+  - url: https://api.ethplorer.io/getTopTokenHolders/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599?apiKey=freekey&limit=10
+    title: Ethplorer top holders
+    accessed: '2026-10-11'
+  - url: https://cointelegraph.com/news/sky-maker-going-ahead-plan-offboard-wrapped-bitcoin
+    title: Cointelegraph, September 2024, Sky goes ahead with the plan to offboard WBTC
+    accessed: '2026-10-11'
+  - url: https://thedefiant.io/news/tokens/coinbase-to-delist-wrapped-bitcoin-in-december
+    title: The Defiant, 2024-11-19, Coinbase to delist WBTC in December
+    accessed: '2026-10-11'
+  - url: https://decrypt.co/296540/bit-global-sues-coinbase-delisting-wrapped-bitcoin
+    title: Decrypt, 2024-12-13, BiT Global sues Coinbase over the delisting
+    accessed: '2026-10-11'
+expected_facts:
+  - id: verified-source
+    agent: onchain
+    pattern: '(?i)(verified|full match|exact match|partial match)'
+  - id: mint-or-burn
+    agent: onchain
+    pattern: '(?i)(mint|burn)'
+  - id: pause
+    agent: onchain
+    pattern: '(?i)paus'
+  - id: owner-or-custodian
+    agent: onchain
+    pattern: '(?i)(owner|custodian|bitgo|merchant|controller)'
+  - id: supply-116k
+    agent: onchain
+    pattern: '(?i)(116[,. ]?\d\d\d|116 ?k\b|116 thousand|115[,. ]?\d\d\d|117[,. ]?\d\d\d)'
+  - id: decimals-8
+    agent: onchain
+    pattern: '(?i)(8 decimals|decimals.{0,6}8)'
+  - id: holder-concentration
+    agent: onchain
+    pattern: '(?i)(holder|concentrat|top ?10|largest)'
+  - id: price-tracks-bitcoin
+    agent: market
+    pattern: '(?i)(market cap|price|bitcoin|btc)'
+  - id: custody-structure
+    agent: docs
+    pattern: '(?i)(bitgo|bit global|custod|joint venture|merchant)'
+  - id: coinbase-2024
+    agent: incidents
+    pattern: '(?i)(coinbase|delist|suspend)'
+  - id: sky-offboarding-2024
+    agent: incidents
+    pattern: '(?i)(sky|maker|offboard|collateral)'
+  - id: no-code-exploit
+    agent: incidents
+    pattern: '(?i)(no (known |recorded |reported |code |contract )?(exploit|hack|incident)|none (found|known|recorded)|not (found|listed|recorded))'
+forbidden_facts:
+  - id: no-controls
+    pattern: '(?i)(no pause function|cannot be paused|immutable contract|no (mint|burn) function)'
+  - id: unverified
+    pattern: '(?i)(not verified|unverified)'
+expected_contradictions:
+  - id: custody-control
+    pattern: '(?i)(custod|control|bitgo|bit global|multi-?sig|jurisdiction|key)'

@@ -1,0 +1,272 @@
+{
+ "case": "rocket-pool",
+ "query": "Rocket Pool",
+ "category": "healthy",
+ "accessed": "2026-10-11",
+ "results": [
+  {
+   "tool": "get_contract_source",
+   "input": {
+    "address": "0xD33526068D116cE69F19A9ee46F0bd304F21A51f",
+    "chain_id": 1
+   },
+   "ok": true,
+   "output": {
+    "address": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+    "chain_id": 1,
+    "sourcify": {
+     "url": "https://sourcify.dev/server/v2/contract/1/0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+     "verified": true,
+     "match": "match",
+     "verified_at": "2024-08-08T13:32:55Z",
+     "creation_match": "match",
+     "runtime_match": "match"
+    },
+    "etherscan": null,
+    "notes": [
+     "ETHERSCAN_API_KEY not set: Etherscan verification not checked."
+    ]
+   }
+  },
+  {
+   "tool": "analyze_bytecode",
+   "input": {
+    "address": "0xD33526068D116cE69F19A9ee46F0bd304F21A51f"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "has_code": true,
+    "code_size_bytes": 7730,
+    "proxy": {
+     "detected": false,
+     "pattern": null,
+     "implementation": null,
+     "admin": null
+    },
+    "selectors_in_proxy_or_contract": {
+     "burn(uint256)": true,
+     "burnFrom(address,uint256)": true
+    },
+    "selectors_in_implementation": null,
+    "owner": null,
+    "paused": null,
+    "notes": [
+     "Selector presence means the 4-byte signature appears in the bytecode; it is strong evidence the function exists but says nothing about who may call it."
+    ]
+   }
+  },
+  {
+   "tool": "get_token_metadata",
+   "input": {
+    "address": "0xD33526068D116cE69F19A9ee46F0bd304F21A51f"
+   },
+   "ok": true,
+   "output": {
+    "address": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+    "rpc_url": "https://ethereum-rpc.publicnode.com",
+    "name": "Rocket Pool Protocol",
+    "symbol": "RPL",
+    "decimals": 18,
+    "total_supply_raw": "22875010836733132644610124",
+    "total_supply": 22875010.836733133
+   }
+  },
+  {
+   "tool": "coingecko_coin",
+   "input": {
+    "id_or_address": "rocket-pool",
+    "lookup": "id"
+   },
+   "ok": true,
+   "output": {
+    "id": "rocket-pool",
+    "symbol": "rpl",
+    "name": "Rocket Pool",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+     "ethereum": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+     "polygon-pos": "0x7205705771547cf79201111b4bd8aaf29467b9ec",
+     "arbitrum-one": "0xb766039cc6db368759c1e56b79affe831d0cc507"
+    },
+    "genesis_date": null,
+    "market_cap_rank": 544,
+    "categories": [
+     "Infrastructure",
+     "Smart Contract Platform",
+     "Decentralized Finance (DeFi)",
+     "Polygon Ecosystem",
+     "Arbitrum Ecosystem",
+     "Ethereum Ecosystem",
+     "Liquid Staking Governance Tokens",
+     "Coinbase Ventures Portfolio"
+    ],
+    "links": {
+     "homepage": [
+      "https://www.rocketpool.net"
+     ],
+     "whitepaper": "https://www.rocketpool.net/files/RocketPoolWhitePaper.pdf",
+     "github": [
+      "https://github.com/rocket-pool/rocketpool",
+      "https://github.com/rocket-pool/smartnode"
+     ],
+     "twitter": "Rocket_Pool",
+     "blockchain_sites": [
+      "https://etherscan.io/token/0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+      "https://intel.arkm.com/explorer/token/rocket-pool",
+      "https://ethplorer.io/address/0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+     ]
+    },
+    "market": {
+     "price_usd": 1.86,
+     "market_cap_usd": 42517532,
+     "fully_diluted_valuation_usd": 42517532,
+     "total_volume_24h_usd": 1421354,
+     "circulating_supply": 22875010.836733133,
+     "total_supply": 22875010.836733133,
+     "max_supply": null,
+     "ath_usd": 61.9,
+     "ath_date": "2023-04-16T11:20:19.000Z",
+     "ath_change_pct": -96.99706,
+     "atl_usd": 0.00884718,
+     "atl_date": "2018-08-27T16:00:00.000Z",
+     "change_24h_pct": -2.69442,
+     "change_7d_pct": -3.11921,
+     "change_30d_pct": 8.71775,
+     "change_1y_pct": -48.78882
+    },
+    "developer_data": {
+     "forks": null,
+     "stars": null,
+     "subscribers": null,
+     "total_issues": null,
+     "closed_issues": null,
+     "pull_requests_merged": null,
+     "pull_request_contributors": null,
+     "commit_count_4_weeks": null
+    },
+    "last_updated": "2026-10-11T19:12:56.000Z",
+    "source_url": "https://api.coingecko.com/api/v3/coins/rocket-pool"
+   }
+  },
+  {
+   "tool": "defillama_protocol",
+   "input": {
+    "slug": "rocket-pool"
+   },
+   "ok": true,
+   "output": {
+    "name": "Rocket Pool",
+    "slug": "900",
+    "is_parent": false,
+    "other_protocols": [],
+    "symbol": "RPL",
+    "category": "Liquid Staking",
+    "chains": [
+     "Ethereum"
+    ],
+    "url": "https://rocketpool.net",
+    "twitter": "Rocket_Pool",
+    "github": [
+     "rocket-pool"
+    ],
+    "gecko_id": "rocket-pool",
+    "parent_protocol": null,
+    "forked_from": null,
+    "audits": "2",
+    "audit_links": [
+     "https://rocketpool.net/files/sigma-prime-audit.pdf",
+     "https://consensys.net/diligence/audits/2021/04/rocketpool",
+     "https://github.com/trailofbits/publications/blob/master/reviews/RocketPool.pdf",
+     "https://immunefi.com/bounty/rocketpool"
+    ],
+    "audit_note": null,
+    "listed_at": "2021-11-24T00:15:07+00:00",
+    "dead_from": null,
+    "description": "Rocket Pool is the first truly decentralised Ethereum staking pool. Liquid Staking, Audited SC, and Minimised Penalty Risk. Unlike solo stakers, who are required to put 32 ETH up for deposit to create a new validator, Rocket Pool nodes only need to deposit 16 ETH per validator. This will be coupled with 16 ETH from the staking pool (which stakers deposited in exchange for rETH) to create a new ETH2 validator.",
+    "tvl_current_usd": 1328388369,
+    "tvl_date": "2026-10-11T17:53:23+00:00",
+    "tvl_90d_ago_usd": 937892652,
+    "tvl_by_chain_usd": {
+     "Ethereum": 1328388369.15015,
+     "staking": 18932734.42756
+    },
+    "hallmarks": [],
+    "source_url": "https://api.llama.fi/protocol/rocket-pool"
+   }
+  },
+  {
+   "tool": "defillama_hacks",
+   "input": {
+    "name_filter": "rocket pool"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.llama.fi/hacks",
+    "database_size": 1300,
+    "query": "rocket pool",
+    "matches": [
+     {
+      "date": "2023-03-30",
+      "name": "Rocket Pool",
+      "classification": "Social Engineering",
+      "technique": "Phishing",
+      "amount_usd": 3800000,
+      "returned_funds_usd": null,
+      "chains": [
+       "Ethereum"
+      ],
+      "target_type": "Token",
+      "bridge": false,
+      "source": "",
+      "defillama_id": "900"
+     }
+    ],
+    "matches_total": 1
+   }
+  },
+  {
+   "tool": "github_repo",
+   "input": {
+    "owner_repo": "rocket-pool/rocketpool"
+   },
+   "ok": true,
+   "output": {
+    "source_url": "https://api.github.com/repos/rocket-pool/rocketpool",
+    "html_url": "https://github.com/rocket-pool/rocketpool",
+    "full_name": "rocket-pool/rocketpool",
+    "description": "Decentralised Ethereum Liquid Staking Protocol.",
+    "created_at": "2017-05-19T06:10:02Z",
+    "pushed_at": "2026-09-23T05:59:41Z",
+    "updated_at": "2026-10-05T08:59:39Z",
+    "stars": 984,
+    "forks": 261,
+    "open_issues": 32,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "license": "GPL-3.0",
+    "language": "JavaScript",
+    "default_branch": "master",
+    "topics": [
+     "beacon-chain",
+     "casper",
+     "ethereum",
+     "pool",
+     "pos",
+     "proof-of-stake"
+    ],
+    "latest_commit": {
+     "sha": "fef41a4f7cf9",
+     "date": "2026-04-17T02:35:15Z",
+     "message": "Merge branch 'master' into master-merge-v1.4"
+    },
+    "contributors": 20,
+    "notes": [
+     "unauthenticated GitHub API: 60 requests per hour per IP"
+    ]
+   }
+  }
+ ]
+}
